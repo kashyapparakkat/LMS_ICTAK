@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 const route = require('./routes/route.js')
-``
+
 // connect to mongo
 mongoose.connect('mongodb://localhost:27017/dbName')
 mongoose.connection.on('connected', ()=>{
@@ -36,7 +36,7 @@ app.use(cors())
 //static files
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('', function (req, res) {
+app.get('/', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.send('Server started')
 });
@@ -52,25 +52,6 @@ app.get('/hi:abc', function (req, res) {
     res.send(`Hello from server`)
 });*/
 
-app.post('/api/student', function (req, res) {
 
-    var student = {
-        id : req.body.s_id,
-        name : req.body.s_Name,
-        sClass : req.body.s_Class
-    }
-
-    const newStudent = new studenInfo(student)
-    newStudent.save
-
-})
-
-app.post('/api/student/"s_Name', function (req, res) {
-    const student = req.params.s_Name;
-    studenInfo.find({name :student}).then(function(item){
-        res.json(item);
-    })
-
-})
 
 app.listen("3000");
