@@ -4,11 +4,6 @@ const http = require("http");
 const bodyparser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
-
-
-
-
-
 // load config
 // dotenv.config({ path: "./config/config.env" });
 const app = express();
@@ -54,7 +49,5 @@ app.get('/hi:abc', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.send(`Hello from server`)
 });*/
-
-
 
 app.listen("3000");
