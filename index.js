@@ -5,10 +5,7 @@ const bodyparser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
-
-
-
-
+//let s=20;
 // load config
 // dotenv.config({ path: "./config/config.env" });
 const app = express();
