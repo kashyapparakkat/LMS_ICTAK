@@ -10,9 +10,12 @@ var studentDetails = new mongoose.Schema({
     email: {
         type: String,
     },
-    username: {
-        type: String,
+    number: {
+        type: Number,
     },
+/*    username: {
+        type: String,
+    },*/
     password: {
         type: String,
     },

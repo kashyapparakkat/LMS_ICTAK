@@ -44,6 +44,7 @@ router.post("/add-student", async (req, res) => {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
+            number: req.body.number,
             dob: req.body.dob,
             subject: req.body.subject
         });
@@ -53,9 +54,7 @@ router.post("/add-student", async (req, res) => {
                 res.status(200);
                 res.json({
                     id: data.id,
-                    name: data.name,
-                    createdBy: data.createdBy,
-                    createdAt: data.createdAt,
+                    name: data.name
                 });
             })
             .catch((err) => {
