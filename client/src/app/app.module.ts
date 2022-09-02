@@ -8,13 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
+import { StudentsComponent } from './students/students.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,

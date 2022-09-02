@@ -7,8 +7,19 @@
           <p class="lead"><b>learner management website for ictak.</b></p>
           <p>
             <a routerLink="login" class="btn btn-primary my-2" style="margin-right: 5px;">Login</a>
-            <a href="#" class="btn btn-secondary my-2" style="margin-left: 5px;">Signup</a>
-          </p>
+           <!--- <a routerLink="signup" class="btn btn-secondary my-2" style="margin-left: 5px;">Signup</a>-->
+
+
+
+           <li class="nav-item dropdown btn btn-secondary my-2" style="margin-left: 5px;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Signup
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">FacultyRegistration</a></li>
+              <li><a class="dropdown-item" routerLink="students">StudentRegistration</a></li>
+             </ul>
+            </p>
         </div>
       </div>
     </section>
