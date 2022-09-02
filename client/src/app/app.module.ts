@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { FacultyregistrationComponent } from './facultyregistration/facultyregistration.component';
 
+import { StudentsComponent } from './students/students.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +18,9 @@ import { FacultyregistrationComponent } from './facultyregistration/facultyregis
     LoginComponent,
     FooterComponent,
     HomeComponent,
-    FacultyregistrationComponent
-  ],
+ StudentsComponent,
+ FacultyregistrationComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule
