@@ -19,10 +19,16 @@ var studentDetails = new mongoose.Schema({
     password: {
         type: String,
     },
-    dob: {
+/*    dob: {
+        type: String,
+    },*/
+/*    subject: {
+        type: String,
+    },*/
+    qualification: {
         type: String,
     },
-    subject: {
+    specialisation: {
         type: String,
     }
 });

@@ -42,11 +42,13 @@ router.post("/add-student", async (req, res) => {
             id: uID,
             name: req.body.name,
             email: req.body.email,
-            username: req.body.username,
+            /*username: req.body.username,*/
             password: req.body.password,
             number: req.body.number,
-            dob: req.body.dob,
-            subject: req.body.subject
+            //dob: req.body.dob,
+            qualification: req.body.qualification,
+            specialisation: req.body.specialisation
+
         });
         apicontract
             .save()
