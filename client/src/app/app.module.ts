@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { FacultyregistrationComponent } from './facultyregistration/facultyregistration.component';
 
 import { StudentsComponent } from './students/students.component';
 
@@ -17,8 +18,9 @@ import { StudentsComponent } from './students/students.component';
     LoginComponent,
     FooterComponent,
     HomeComponent,
-    StudentsComponent
-  ],
+ StudentsComponent,
+ FacultyregistrationComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule
