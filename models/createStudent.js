@@ -30,6 +30,9 @@ var studentDetails = new mongoose.Schema({
     },
     specialisation: {
         type: String,
+    },
+    isEnrolled: {
+        type: Boolean,
     }
 });
 
