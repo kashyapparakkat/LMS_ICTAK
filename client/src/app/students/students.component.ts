@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
+  studentSign(item:any){
+     alert("success")
+  }
+
   constructor() { }
 
   ngOnInit(): void {

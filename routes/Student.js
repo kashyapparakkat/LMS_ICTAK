@@ -47,7 +47,8 @@ router.post("/add-student", async (req, res) => {
             number: req.body.number,
             //dob: req.body.dob,
             qualification: req.body.qualification,
-            specialisation: req.body.specialisation
+            specialisation: req.body.specialisation,
+            isEnrolled: req.body.isEnrolled
 
         });
         apicontract
