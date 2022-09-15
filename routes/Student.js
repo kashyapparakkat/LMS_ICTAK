@@ -35,21 +35,23 @@ router.get("/get-student-details", async function (req, res) {
 router.post("/add-student", async (req, res) => {
     try {
         console.log("User email -- " + req.body.email);
+         res.header("Access-Control-Allow-Orgin","*");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS')
 
         let uID = uniqueID();
 
         const apicontract = new student({
             id: uID,
-            name: req.body.name,
-            email: req.body.email,
+            name: req.body.user.name,
+            email: req.body.user.email,
             /*username: req.body.username,*/
-            password: req.body.password,
-            number: req.body.number,
+            password: req.body.user.password,
+            number: req.body.user.number,
             //dob: req.body.dob,
-            qualification: req.body.qualification,
-            specialisation: req.body.specialisation,
-            isEnrolled: req.body.isEnrolled
-
+            qualification: req.body.user.qualification,
+            specialisation: req.body.user.specialisation,
+            isEnrolled: req.body.user.isEnrolled
+            
         });
         apicontract
             .save()
