@@ -8,8 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { FacultyregistrationComponent } from './facultyregistration/facultyregistration.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { StudentsComponent } from './students/students.component';
+import { SignupacknowledgeComponent } from './signupacknowledge/signupacknowledge.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { TrainerCoursesMeanComponent } from './trainer-courses-mean/trainer-courses-mean.component';
+import { FormsModule } from '@angular/forms';
+import { MeanMay22Component } from './mean-may22/mean-may22.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,11 +27,19 @@ import { StudentsComponent } from './students/students.component';
     FooterComponent,
     HomeComponent,
  StudentsComponent,
- FacultyregistrationComponent
+ FacultyregistrationComponent,
+ SignupacknowledgeComponent,
+ ForgotPasswordComponent,
+ TrainerHomeComponent,
+ TrainerCoursesMeanComponent,
+ MeanMay22Component
+ 
 ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
