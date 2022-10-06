@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usermodel } from '../facultyregistration/users.model';
+//import { Usermodel } from '../facultyregistration/users.model';
 import { UserserviceService } from '../services/userservice.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,25 @@ export class StudentsComponent implements OnInit {
     }
   
     constructor(private userService:UserserviceService,private router:Router) { }
-    userSingnup= new Usermodel("","","","","","","","","",0,false);
+    //userSingnup= new Usermodel("","","","","","","","","",0,false);
+    userSingnup={
+
+      name:'',
+      email:'',
+      usename:'',
+      password:'',
+     user:'student',
+      id:'',
+      dob:'',
+     subject:'',
+      qualification:'',
+      specialisation:'',
+      number:'',
+      isEnrolled:false
+ 
+ 
+   }
+   
     
     ngOnInit(): void {
     }
@@ -29,8 +47,6 @@ export class StudentsComponent implements OnInit {
     addUser()
     {
       this.userService.newUser(this.userSingnup);
-      alert("Successfully Registered.please wait for approvel ");
-      console.log(this.userSingnup);
       this.router.navigate(['']);
     }
     

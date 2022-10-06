@@ -25,6 +25,12 @@
           </div>
 
           <div class="form-outline mb-3">
+            <input type="text"  [(ngModel)]="userSingnup.number" name="pnum" #pnum="ngModel"  required pattern="[6-9]{1}[0-9]{9}"  class="form-control form-control-lg"
+              placeholder="Contactnumber" />
+              <span *ngIf="pnum.touched && pnum.invalid" style="color:red">enter valid phonenumber</span>
+          </div>
+
+          <div class="form-outline mb-3">
             <input type="password" id="form3Example5" [(ngModel)]="userSingnup.password" required minlength="6" name="pwd" #pwd="ngModel" class="form-control form-control-lg"
               placeholder="Enter password" />
               <span *ngIf="pwd.touched && pwd.invalid" style="color:red">Enter password</span>
@@ -32,16 +38,13 @@
           </div>
 
           <div class="form-outline mb-3">
-            <input type="confirm password" id="form3Example6" class="form-control form-control-lg"
-              placeholder="Confirm password" />
-            <label class="form-label" for="form3Example4"></label>
-          </div>
+            <input type="password" pattern="{{userSingnup.password}}" ngModel #cwd="ngModel" name="cwd" required class="form-control form-control-lg"
+              placeholder="confirm password" />
+              <span *ngIf="cwd.touched && cwd.invalid " style="color:red"> Re-enter password correctly</span>
+            </div>
+        
 
-          <div class="form-outline mb-3">
-            <input type="number"  [(ngModel)]="userSingnup.number" name="pnum" #pnum="ngModel"  required pattern="[6-9]{1}[0-9]{9}"  class="form-control form-control-lg"
-              placeholder="Contactnumber" />
-              <span *ngIf="pnum.touched && pnum.invalid" style="color:red">enter valid phonenumber</span>
-          </div>
+         
 
 
           <div class="form-outline mb-3">

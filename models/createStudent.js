@@ -33,7 +33,30 @@ var studentDetails = new mongoose.Schema({
     },
     isEnrolled: {
         type: Boolean,
-    }
+    },
+    gender: {
+        type: String,
+    },
+    user: {
+        type: String,
+    },
 });
 
-module.exports = mongoose.model("student", studentDetails);
+
+//email validation
+studentDetails.path('email').validate(async(email)=>{
+    const emailcount=await mongoose.models.student.countDocuments({email})
+    return !emailcount
+},'Email already exists')
+
+// //phone number validation
+// studentDetails.path('number').validate(async(number)=>{
+//     const numbercount=await mongoose.models.student.countDocuments({number})
+//     return !numbercount
+// },'Phone Number  already exists')
+
+
+
+const student = mongoose.model('student',studentDetails);
+
+module.exports = student;
