@@ -1,25 +1,28 @@
 <section class="vh-90" style="margin-top:95px;margin-bottom:95px">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
+        <div class="col-md-8 col-lg-3 col-xl-4">
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form #loginform="ngForm" (ngSubmit)="addUser()">
+  
   
             
             <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
+              <input type="text"  name="fname"  [(ngModel)]="userSingnup.name" #fname="ngModel" required class="form-control form-control-lg"
                 placeholder="Enter Fullname" />
+                <span *ngIf="fname.touched && fname.invalid" style="color:red">Enter  Fullname</span>
               <!-- <label class="form-label" for="form3Example3">Enter Fullname</label> -->
             </div>
   
             
             <div class="form-outline mb-3">
+              <input type="email"  name="email" email [(ngModel)]="userSingnup.email" #email="ngModel"   required class="form-control form-control-lg"
+                placeholder="Enter Email valid  Address" />
+                <span *ngIf="email.touched && email.invalid" style="color:red">Enter valid email</span>
               
-              <input type="email" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter Email" />
             </div>
 
            
@@ -27,53 +30,70 @@
 
 
             <div class="form-outline mb-3">
-                <input type="number" id="form3Example4" class="form-control form-control-lg"
+                <input type="text"  [(ngModel)]="userSingnup.number" pattern="[6-9]{1}[0-9]{9}" name="pnum" #pnum="ngModel" required    class="form-control form-control-lg"
                   placeholder="Contactnumber" />
+                  <span *ngIf="pnum.touched && pnum.invalid" style="color:red">Enter valid phonenumber</span>
+              </div>
+            
+
+           
+              <div class="form-outline container mb-3">
+                <div>
+                 
+                  <label>Gender</label><br>
+              
+              <div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+                <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+                <label class="btn btn-outline-dark" for="btnradio1">M</label>
+              
+                <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-dark" for="btnradio2">F</label>
+                <span *ngIf="gen.touched && gen.invalid" style="color:red">Enter valid phonenumber</span>
+              </div>
+              
+            </div> 
               </div>
 
-              <!-- <div class="form-outline mb-3">
-                <input type="text" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="Qualification" />
-              </div> -->
+             
 
               <div class="form-outline mb-3">
-                <label class="form-label" for="form3Example3">Upload Resume</label>
-                <input type="file"  id="form3Example4" class="form-control form-control-lg"/>
+                <label class="form-label"    required for="form3Example3">Upload Resume</label>
+                <input type="file" name="res" single (change)="selectResume($event)" #f="ngModel" ngModel  required class="form-control form-control-lg"/>
+                <span *ngIf="f.touched && f.invalid" style="color:red">Upload Resume</span>
                 </div>
 
 
               <div class="form-outline mb-3">
-                <input type="password" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="password" />
+                <input type="password"  [(ngModel)]="userSingnup.password" name="password" #password="ngModel" required minlength="6" class="form-control form-control-lg"
+                  placeholder="Enter password" />
+                  <span *ngIf="password.touched && password.invalid" style="color:red">Enter  password</span>
               </div>
 
               <div class="form-outline mb-3">
-                <input type="password" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="confirm password" />
-              </div>
+                <input type="password" pattern="{{userSingnup.password}}" ngModel #cwd="ngModel" name="cwd" required class="form-control form-control-lg"
+                  placeholder="Confirm password" />
+                  <span *ngIf="cwd.touched && cwd.invalid " style="color:red"> Re-enter password correctly</span>
+                </div>
             
            
   
             <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <!-- <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                  Remember me
-                </label>
-              </div> -->
-              <!-- <a href="#!" class="text-body" style="text-decoration: none;">Forgot password?</a> -->
+             
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
+
+              <button type="submit" value="submit" [disabled]="loginform.invalid" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" routerLink="/signupacknowledge">submit</button>
+
               <p class="small fw-bold mt-2 pt-1 mb-0">Want to sign? <a href="login"
                   class="link-danger" style="text-decoration: none;">Login</a></p>
             </div>
   
           </form>
+
         </div>
       </div>
     </div>
+ 
   </section>

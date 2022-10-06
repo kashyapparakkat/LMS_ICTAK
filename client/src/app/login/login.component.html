@@ -6,19 +6,21 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
   
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" />
+              <input type="e-mail" email required name="email" ngModel #email="ngModel" class="form-control form-control-lg"
+              placeholder="Enter valid e-mail" />
+              <span *ngIf="email.touched && email.invalid" style="color:red">Enter valid Email</span><br>
               <label class="form-label" for="form3Example3">Email address</label>
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" />
+              <input type="password"  ngModel name="password" #password="ngModel" required minlength="6" class="form-control form-control-lg"
+              placeholder="enter password" />
+              <span *ngIf="password.touched && password.invalid" style="color:red">enter  password</span>
               <label class="form-label" for="form3Example4">Password</label>
             </div>
   
@@ -34,7 +36,7 @@
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
+              <button type="button" [disabled]="loginform.invalid" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
               <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                   class="link-danger" style="text-decoration: none;">Signup</a></p>
