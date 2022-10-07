@@ -18,6 +18,34 @@ const app = express();
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
+app.post('/login', (req,res)=>{
+    let userData=req.body
+    if(!email){
+        res.status(401).send("INVALID E-MAIL")
+    }else
+    if(password!==userData.password){
+        res.status(401)("INVALID PASSWORD")
+    }else  
+    if(isApproved!==true){
+        res.status(401).send("INVALID LOGIN")
+    }
+    
+    
+    else{
+        res.status(200).send()
+        
+    }
+})
+
+
+
+
+
+
+
+
+
+
 const route = require('./routes/route.js')
 
 // connect to mongo
