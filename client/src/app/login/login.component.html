@@ -6,11 +6,11 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+          <form #loginform="ngForm" (ngSubmit)="login()">
   
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="e-mail" email required name="email" ngModel #email="ngModel" class="form-control form-control-lg"
+              <input type="e-mail" email required name="email" email [(ngModel)]="user.email" ngModel #email="ngModel" class="form-control form-control-lg"
               placeholder="Enter valid e-mail" />
               <span *ngIf="email.touched && email.invalid" style="color:red">Enter valid Email</span><br>
               <label class="form-label" for="form3Example3">Email address</label>
@@ -18,7 +18,7 @@
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input type="password"  ngModel name="password" #password="ngModel" required minlength="6" class="form-control form-control-lg"
+              <input type="password"  ngModel name="password" password [(ngModel)]="user.password" #password="ngModel" required minlength="6" class="form-control form-control-lg"
               placeholder="enter password" />
               <span *ngIf="password.touched && password.invalid" style="color:red">enter  password</span>
               <label class="form-label" for="form3Example4">Password</label>
