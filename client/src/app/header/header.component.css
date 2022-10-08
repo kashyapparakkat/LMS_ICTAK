@@ -48,3 +48,9 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
+  #head{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+  }
