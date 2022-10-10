@@ -5,7 +5,7 @@ const bodyparser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const db = require("./database");
-const multer=require("multer");//for file uploading
+//const multer=require("multer");//for file uploading
 
 const bcrypt=require('bcrypt');//encryption of password
 
@@ -18,6 +18,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+//app.use(express.static('uploads'));
 
 const route = require('./routes/route.js')
 
@@ -39,27 +40,6 @@ app.use(cors())
 
 
 
-//fileuploading 
-
-let upload=multer({dest:'uploads/'});
-app.post('/file',upload.single('file'),(req,res,next)=>{
-  try{
-
-    const file=req.file;
-    console.log(file);
-    if(!file){
-        const error=new Error("Please Upload a file");
-        error.httpStatusCode=400;
-        return next(error)
-    }
-    res.send(file)
-  }
-  catch(error){
-    console.log("Error occured"+error);
-  }
-
-
-})
 
 
 //static files

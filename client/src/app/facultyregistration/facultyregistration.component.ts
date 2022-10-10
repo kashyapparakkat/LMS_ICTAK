@@ -24,7 +24,7 @@ export class FacultyregistrationComponent implements OnInit {
   }
 
   constructor(private userService:UserserviceService,private router:Router,public http:HttpClient) { }
-
+  selected:String="Other";
    userSingnup={
 
      name:'',
@@ -43,7 +43,19 @@ export class FacultyregistrationComponent implements OnInit {
 
 
   }
-  
+  courses=[{
+    id:1,name:"B.tech"
+  },
+  {
+    id:2,name:"MCA"
+  },{
+    id:3,name:"M.tech"
+  },
+  {
+    id:4,name:"Other"
+  }
+]
+
   ngOnInit(): void {
   }
 
@@ -81,7 +93,7 @@ export class FacultyregistrationComponent implements OnInit {
   {
       const formdata=new FormData();
       formdata.append('file',this.resume);
-      this.http.post('http://localhost:3000/file',formdata).subscribe((res)=>console.log(res),(err)=>console.log(err))
+      this.http.post('http://localhost:3000/api/file',formdata).subscribe((res)=>console.log(res),(err)=>console.log(err))
 
 
     this.userService.newUser(this.userSingnup);
