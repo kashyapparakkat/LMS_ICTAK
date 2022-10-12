@@ -13,7 +13,7 @@
   </div>
   <div class="card-body">
     <p class="card-text">{{i.ModuleDescription}}</p>
-    <div><span><a href="{{i.Video}}" class="btn btn-success" style="display: float;position:right;">Video</a></span><span style="margin-left:10px"><a href="{{i.Resources}}" class="btn btn-warning" style="display: float;position:right;">Resources</a></span><span style="float: right;"><a><i class="fa-solid fa-pen-to-square fa-2x" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"></i></a><a><i class="fa-sharp fa-solid fa-trash fa-2x" style="margin-left: 10px;color:red;"></i></a> </span></div>
+    <div><span><a href="{{i.Video}}" class="btn btn-success" style="display: float;position:right;">Video</a></span><span style="margin-left:10px"><a href="{{i.Resources}}" class="btn btn-warning" style="display: float;position:right;">Resources</a></span><span style="float: right;"><button class="btn btn-danger" style="margin-right: 10px;margin-bottom: 15px;">Close</button><a (click)="getcurrentmaterial_func(i._id)"><i class="fa-solid fa-pen-to-square fa-2x" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"></i></a><a><i class="fa-sharp fa-solid fa-trash fa-2x" style="margin-left: 10px;color:red;"></i></a> </span></div>
   </div>
 </div>
 </div>
@@ -25,13 +25,13 @@
 <hr>
 
 <div class="card" style="width: 90%;margin:auto;margin-top: 5px;" *ngFor="let i of materials" >
-    <div *ngIf='i.Isopen==false'>
+    <div *ngIf='i.Isopen!= true'>
   <div class="card-header" >
     <h5>{{i.ModuleName}}</h5>
   </div>
   <div class="card-body">
     <p class="card-text">{{i.ModuleDescription}}</p>
-    <div><span><a href="{{i.Video}}" class="btn btn-success" style="display: float;position:right;">Video</a></span><span style="margin-left:10px"><a href="{{i.Resources}}" class="btn btn-warning" style="display: float;position:right;">Resources</a></span><span style="float: right;"><a><i class="fa-solid fa-pen-to-square fa-2x" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"></i></a><a><i class="fa-sharp fa-solid fa-trash fa-2x" style="margin-left: 10px;color:red;"></i></a> </span></div>
+    <div><span><a href="{{i.Video}}" class="btn btn-success" style="display: float;position:right;">Video</a></span><span style="margin-left:10px"><a href="{{i.Resources}}" class="btn btn-warning" style="display: float;position:right;">Resources</a></span><span style="float: right;"><button class="btn btn-success" style="margin-right: 10px;margin-bottom: 15px;" (click)="open_course(i._id)">Open</button><a (click)="getcurrentmaterial_func(i._id)"><i class="fa-solid fa-pen-to-square fa-2x" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"></i></a><a><i class="fa-sharp fa-solid fa-trash fa-2x" style="margin-left: 10px;color:red;"></i></a> </span></div>
   </div>
 </div>
 </div>
@@ -72,3 +72,37 @@
     </div>
   </div>
    -->
+   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Course Contents</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" #updatematerial ="ngForm"  class="col-md-6" style="margin-top: 10px;width: 100%;" (ngSubmit)="updatebatchmaterial_func()">
+                <div class="form-group">
+                <label for="">Module Name:</label>
+                <input type="text" class="form-control" name="module" #module ngModel>
+                </div>
+                <div class="form-group">
+                <label for="">Module Description:</label>
+                <input type="text" class="form-control" name="desc" #desc ngModel>
+                </div>
+                <div class="form-group">
+                <label for="">Video file:</label>
+                <input type="" class="form-control" name="video" #video ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="">Other Resources:</label>
+                    <input type="text" class="form-control" name="resources" #resources ngModel>
+                    </div>
+                <div class="form-group" style="margin-bottom:10px;margin-top:10px;">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 10px;">Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

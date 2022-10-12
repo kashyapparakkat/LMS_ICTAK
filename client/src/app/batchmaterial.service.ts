@@ -14,4 +14,13 @@ export class BatchmaterialService {
   viewbatchmaterial(){
     return this.http.get(`${this.server_address}/batchmaterial`)
   }
+
+  getcurrentmaterial(id:any){
+    return this.http.get(`${this.server_address}/batchmaterial/${id}`)
+    }
+    updatebatchmaterial(id:any,data:any){
+      console.log(`batch data ${data}`)
+      return this.http.patch(`${this.server_address}/batchmaterial/${id}`,data)
+     } 
+  
 }

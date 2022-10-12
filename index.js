@@ -151,6 +151,24 @@ app.delete('/api/material/:id',async(req,res)=>{
          res.send("Error" + err) 
         }
      })
+
+     app.patch('/api/batchmaterial/:id',async(req,res)=>{
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH");
+        try{
+            const bmaterial1=await batchmaterial.findById(req.params.id)
+            bmaterial1.ModuleName=req.body.module
+            bmaterial1.ModuleDescription=req.body.desc
+            bmaterial1.Video=req.body.video
+            bmaterial1.Resources=req.body.resources
+            bmaterial1.Isopen=req.body.isopen
+            console.log(batchmaterial)
+            const bm1=await bmaterial1.save()
+            res.json(bm1)
+        }catch(err){
+           res.send('Error' +err)
+        }
+     })
      
      app.get('/api/material/:id',async(req,res)=>{
         res.header("Access-Control-Allow-Origin", "*");
@@ -163,7 +181,16 @@ app.delete('/api/material/:id',async(req,res)=>{
         }
      })
 
-
+     app.get('/api/batchmaterial/:id',async(req,res)=>{
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+        try{
+            const bmaterial1=await batchmaterial.findById(req.params.id)
+            res.send(bmaterial1)
+        }catch(err){
+            res.send('Error' + err)
+        }
+     })
 /*app.get('/', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.sendFile(home);
