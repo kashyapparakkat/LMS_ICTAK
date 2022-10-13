@@ -13,12 +13,14 @@ import { StudentsComponent } from './students/students.component';
 import { TrainerCoursesMeanComponent } from './trainer-courses-mean/trainer-courses-mean.component';
 
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import {StudentHomeComponent} from "./student-home/student-home.component";
 
 
 const routes: Routes = [{path:'',component:HomeComponent},{path:'login',component:LoginComponent},
 {path:'facultyregistration',component:FacultyregistrationComponent},{path: 'students', component:StudentsComponent} ,{path:'signupacknowledge',component:SignupacknowledgeComponent},
 {path:'forgotpassword',component:ForgotPasswordComponent},{path:'trainer-home',component:TrainerHomeComponent},{path:'trainer-mean',component:TrainerCoursesMeanComponent},
-{path:'mean-may22',component:MeanMay22Component}];
+{path:'mean-may22',component:MeanMay22Component},
+{path:'student-home',component:StudentHomeComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

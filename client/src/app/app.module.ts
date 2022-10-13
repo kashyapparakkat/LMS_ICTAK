@@ -17,6 +17,7 @@ import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerCoursesMeanComponent } from './trainer-courses-mean/trainer-courses-mean.component';
 
 import { MeanMay22Component } from './mean-may22/mean-may22.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
 
 
 
@@ -35,7 +36,8 @@ import { MeanMay22Component } from './mean-may22/mean-may22.component';
  TrainerCoursesMeanComponent,
  MeanMay22Component,
     StudentsComponent,
-     FacultyregistrationComponent
+     FacultyregistrationComponent,
+     StudentHomeComponent
 ],
   imports: [
     BrowserModule,
