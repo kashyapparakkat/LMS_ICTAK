@@ -1,14 +1,14 @@
 const express = require("express");
 const path = require("path");
 const http = require("http");
-const bodyparser = require('body-parser')
-const cors = require('cors')
+const bodyparser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose')
 const db = require("./database");
+const assignment=require('./models/assignment')
 //const multer=require("multer");//for file uploading
 
 const bcrypt=require('bcrypt');//encryption of password
-
 
 
 // load config
@@ -36,7 +36,7 @@ mongoose.connection.on('error', (err)=>{
 
 //adding cors and body parser for middleware
 app.use(bodyparser.json())
-app.use(cors())
+app.use(cors());
 
 
 
@@ -52,10 +52,29 @@ app.get('/', function (req, res) {
 });
 
 
+// app.get('/getassign',async(req,res)=>{
+//     try{
+//         res.header("Access-Control-Allow-Orgin","*");
+//         res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS')
+//     assignment.find()
+//     .then(function(data){
+//         res.send(data);
+//         console.log(data)
+//     });
+// }
+// catch(er){
+//     console.log("error"+er)
+// }
+// })
+
+
+
 /*app.get('/', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.sendFile(home);
 });
+
+
 
 app.get('/hi:abc', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));

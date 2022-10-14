@@ -11,6 +11,11 @@ import { HomeComponent } from './home/home.component';
 import { FacultyregistrationComponent } from './facultyregistration/facultyregistration.component';
 
 import { StudentsComponent } from './students/students.component';
+import Quill from 'quill';
+import { QuillModule } from 'ngx-quill';
+import { AddassignmentComponent } from './addassignment/addassignment.component';
+import { AssigmentslistComponent } from './assigmentslist/assigmentslist.component';
+import { UpdateassignmenttrainerComponent } from './updateassignmenttrainer/updateassignmenttrainer.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,17 @@ import { StudentsComponent } from './students/students.component';
     FooterComponent,
     HomeComponent,
     StudentsComponent,
-     FacultyregistrationComponent
+     FacultyregistrationComponent,
+     AddassignmentComponent,
+     AssigmentslistComponent,
+     UpdateassignmenttrainerComponent
 ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]
