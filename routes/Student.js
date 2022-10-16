@@ -4,8 +4,7 @@ const router = express.Router();
 const uniqueID = require("../utils/uniqueID");
 const bcrypt=require("bcrypt")
 
-email='admin@gmail.com'
-password='123456'
+
 
 
 
@@ -147,41 +146,56 @@ router.post('/add-student',async (req,res)=>{
 
 })
 
-//email='admin@gmail.com'
-//password='123456'
+
 
 
 
 router.post('/login',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
-    student.find({email:req.body.user.email})
-    .exec()
-    .then((result)=>{
-        if(result.length<1){
-            return res.status(404).res.json({success:false,message:"user not found"})
-        }
-        const user1=result[0];
+    console.log("request",req.body)
+    student.find({email:req.body.email})
+    //.exec()
+ .then((result)=>{
+       // if(result.length<1){
+            
+           // return res.status(404).res.json({success:false,message:"user not found"})
+            
 
+        //}
+        //const user1=result[0];
+        if(result){
+            res.status(200)
+            res.json(result)
+        }
+else{
+    res.status(404)
+    res.json({
+        message: ["student not found"],
+    });
+}
+        
+  
         //password comparison
-        bcrypt.compare(req.body.user.password,user1.password,(err,ret)=>{
+        bcrypt.compare(req.body.password,user1.password,(err,ret)=>{
             if(ret){
                 return res.status(200).json({success:true,message:"Sucessful login"})
             }
-            else{
-                return res.status(404).json({success:false,message:"incorrect password"})
+           else{
+               return res.status(404).json({success:false,message:"incorrect password"})
             }
-            //if(isEnrolled==true){
-               // res.status(200).json({success:true,message:"Approved by admin"})
-            //}
-            //else{
-               // res.status(404).json({success:true,message:"Not approved by admin"})
+           // if(isEnrolled==true){
+             //   res.status(200).json({success:true,message:"Approved by admin"})
+           // }
+           // else{
+            //    res.status(404).json({success:true,message:"Not approved by admin"})
            // }
         })
     })
     .catch((err)=>{
         res.json({success:false,message:"ERROR"})
     })
+
 
 })
 

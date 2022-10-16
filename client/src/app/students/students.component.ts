@@ -35,7 +35,8 @@ export class StudentsComponent implements OnInit {
       qualification:'',
       specialisation:'',
       number:'',
-      isEnrolled:false
+      isEnrolled:false,
+      gender:''
  
  
    }

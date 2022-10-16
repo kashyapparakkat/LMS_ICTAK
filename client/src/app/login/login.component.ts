@@ -14,16 +14,30 @@ export class LoginComponent implements OnInit {
   constructor(private userservice:UserserviceService, private router:Router) { }
   user={
     email:'',
-    password:''
+    password:'',
+    role:''
   }
+
 
   ngOnInit(): void {
   }
   login(){
-    alert("successful login");
+    //alert("successful login");
     this.userservice.loginuser(this.user);
     console.log(this.user);
+    console.log("role"+this.user.role);
+    
   }
-
+  //role(roleof:any){
+    //if(roleof=="Faculty"){
+    //  this.router.navigate(['/trainer-home'])
+    //}else
+    //if(roleof=="student"){
+     // this.router.navigate(['/student-home'])
+    //}
+    //else{
+    //  this.router.navigate(['/admin-home'])
+    //}
+  //}
 
 }
