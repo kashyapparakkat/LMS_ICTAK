@@ -1,0 +1,62 @@
+<!-- <div class="rich container-fluid h-custom">
+    <div class='card'>
+    
+        <div class='card-header'style="text-align:center;color:brown;">
+         <h3>{{titlename}}</h3>
+        </div>
+        
+        <div class='card-body' style="background-color:beige">            
+          <div class='table-responsive'>
+            <table class='table'
+                  *ngIf = 'assign && assign.length'>
+              <thead>
+                <tr>
+                 
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                
+                 
+                </tr>
+               
+              </thead>
+              <tbody>  
+                  <tr *ngFor='let i of assign'>
+                      
+                      <td>{{ i.title }}</td>
+                      <td>{{ i.date }}</td>
+                      <td>{{i.description}}</td>
+                      
+                      
+                      <td>
+                        <button class="btn btn-light" type="submit" style="cursor:pointer" (click)="editAssign(i)"  style="margin-left: 20px;"> Edit</button>
+                        <button class="btn btn-dark" style="cursor:pointer" (click)="deleteAssign(i)" > Delete</button>
+                      </td>
+                    </tr>              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div> -->
+<div class="rich container-md h-custom" *ngIf = 'assign && assign.length'  >
+  <div class="card text-center" >
+    <div class="card-header"  >
+     <h3> Assignment Lists</h3>    
+      
+    <div  class="card-body"  *ngFor='let c of assign' style="border:1px solid black">
+      <div class="buttons">
+      <button class="btn btn-light" type="submit" style="cursor:pointer" (click)="editAssign(c)"  style="margin-left: 20px;"> Edit</button>
+      <button class="btn btn-dark" style="cursor:pointer" (click)="deleteAssign(c)">Delete</button>
+    </div>
+      <h5 class="card-title">{{ c.title }}</h5> 
+     <div [innerHTML]="c.description"> <p class="card-text" >{{c.description}}</p></div>
+       <label> Date:{{c.date}}</label><br>
+     
+    </div>
+    </div>
+    <div class="card-footer text-muted">
+    
+    </div>
+  </div>
+</div>
