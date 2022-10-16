@@ -55,6 +55,7 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
     HttpClientModule,
     QuillModule
   ],

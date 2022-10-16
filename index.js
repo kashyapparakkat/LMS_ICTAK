@@ -23,8 +23,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 //app.use(express.static('uploads'));
 
-const route = require('./routes/route.js');
-const batchmaterial = require("./models/batchmaterial");
+const route = require('./routes/route.js')
 
 // connect to mongo
 /*mongoose.connect('mongodb://localhost:27017/dbName')

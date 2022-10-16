@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
+import { response } from 'express';
 import { Usermodel } from '../facultyregistration/users.model';
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
+error:any
 
   constructor(private http:HttpClient,private router:Router) { }
 
@@ -26,5 +27,33 @@ export class UserserviceService {
 });
 
 
+  }
+
+  loginuser(user:any){
+    
+    return this.http.post("http://localhost:3000/api/login",{user})
+    .subscribe((res)=>{
+      alert("Sucessful Login");
+     // if(user.role=="faculty"){
+      this.router.navigate(['/trainer-home']);
+    //}
+    //else
+    //if(user.role=="student"){
+     // this.router.navigate(['/student-home'])
+    //}
+    //else{
+      //this.router.navigate(['/admin-home'])
+    //}
+    },
+     
+    
+     (err)=>{
+      this.error=err.message;
+      alert("Not approved by admin")
+     
+    
+
+    })
+    
   }
 }

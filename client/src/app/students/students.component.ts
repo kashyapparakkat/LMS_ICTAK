@@ -36,7 +36,9 @@ export class StudentsComponent implements OnInit {
       qualification:this.selected,
       specialisation:'',
       number:'',
-      isEnrolled:false
+      isEnrolled:false,
+      gender:''
+
    }
 
   courses=[{

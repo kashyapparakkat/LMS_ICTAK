@@ -50,7 +50,16 @@
               <span *ngIf="cwd.touched && cwd.invalid " style="color:red"> Re-enter password correctly</span>
             </div>
         
-
+            <div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+              <label> Gender</label>
+              <br>
+              <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+              <label class="btn btn-outline-dark" for="btnradio1">M</label>
+            
+              <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio2">F</label>
+              <span *ngIf="gen.touched && gen.invalid" style="color:red">select gender</span>
+            </div>
          
 
 
