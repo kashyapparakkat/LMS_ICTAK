@@ -1,3 +1,4 @@
+/*
 const tutor = require("../models/createTutor");
 const express = require("express");
 const router = express.Router();
@@ -159,4 +160,4 @@ router.get("/validate-tutor-details", async function (req, res) {
     }
 });
 
-module.exports = router;
+module.exports = router;*/

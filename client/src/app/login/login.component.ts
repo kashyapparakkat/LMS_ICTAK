@@ -18,15 +18,40 @@ export class LoginComponent implements OnInit {
     role:''
   }
 
+  loginResponse= {
+    success: '',
+    message: '',
+    user: ''
+  }
+
 
   ngOnInit(): void {
   }
   login(){
-    //alert("successful login");
-    this.userservice.loginuser(this.user);
     console.log(this.user);
     console.log("role"+this.user.role);
-    
+    //alert("successful login");
+    this.userservice.loginuser(this.user).subscribe((data)=>{
+      this.loginResponse=JSON.parse(JSON.stringify(data))
+      //console.log(this.loginResponse)
+      console.log("this.loginResponse.user",this.loginResponse.user);
+      if(this.loginResponse.user=="student"){
+        console.log("Inside student home navigation")
+        this.router.navigate(['/student-home']);
+      }
+      else if(this.loginResponse.user=="teacher"){
+        console.log("Inside trainer home navigation")
+        this.router.navigate(['/trainer-home'])
+      }
+      else{
+        alert("Username or password is not correct")
+      }
+    });
+
+      //else{
+      //this.router.navigate(['/admin-home'])
+      //}
+
   }
   //role(roleof:any){
     //if(roleof=="Faculty"){

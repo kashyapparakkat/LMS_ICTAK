@@ -19,23 +19,23 @@ error:any
     alert("Successfully Registered.please wait for approvel ");
     this.router.navigate(['login']);
 }, (err) => {
-   
+
     alert("  Email  already exists");
-    
+
     this.router.navigate(['']);
-    
+
 });
 
 
   }
 
   loginuser(user:any){
-    
+
     return this.http.post("http://localhost:3000/api/login",{user})
-    .subscribe((res)=>{
+   /* .subscribe((res)=>{
       alert("Sucessful Login");
      // if(user.role=="faculty"){
-      this.router.navigate(['/trainer-home']);
+      this.router.navigate(['/trainer-home']);*/
     //}
     //else
     //if(user.role=="student"){
@@ -44,16 +44,16 @@ error:any
     //else{
       //this.router.navigate(['/admin-home'])
     //}
-    },
-     
-    
+    }/*,
+
+
      (err)=>{
       this.error=err.message;
       alert("Not approved by admin")
-     
-    
+
+
 
     })
-    
-  }
+
+  }*/
 }

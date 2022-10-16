@@ -197,7 +197,7 @@ router.post('/login',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
     console.log("request",req.body)
-    student.find({email:req.body.email})
+    student.find({email:req.body.user.email})
     //.exec()
  .then((result)=>{
        // if(result.length<1){
@@ -207,7 +207,8 @@ router.post('/login',(req,res)=>{
 
         //}
         //const user1=result[0];
-        if(result){
+        /*if(result){
+            console.log("Result===",result)
             res.status(200)
             res.json(result)
         }
@@ -216,15 +217,19 @@ else{
     res.json({
         message: ["student not found"],
     });
-}
+}*/
         
   
         //password comparison
-        bcrypt.compare(req.body.password,user1.password,(err,ret)=>{
+     console.log("req.body.password==", req.body.user.password)
+     console.log("result[0].password==", result[0].password)
+        bcrypt.compare(req.body.user.password,result[0].password,(err,ret)=>{
             if(ret){
-                return res.status(200).json({success:true,message:"Sucessful login"})
+                console.log("inside bycrypt if")
+                return res.status(200).json({success:true,message:"Sucessful login", user:result[0].user})
             }
            else{
+                console.log("inside bycrypt else")
                return res.status(404).json({success:false,message:"incorrect password"})
             }
            // if(isEnrolled==true){

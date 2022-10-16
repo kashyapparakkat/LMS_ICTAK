@@ -1,3 +1,4 @@
+/*
 const express = require("express");
 const router = express.Router();
 const uniqueID = require("../utils/uniqueID");
@@ -40,4 +41,4 @@ router.post('/login', (req,res)=>{
 
 
 
-module.exports = router;
+module.exports = router;*/

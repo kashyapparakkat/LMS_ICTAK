@@ -47,11 +47,11 @@ var studentDetails = new mongoose.Schema({
 });
 
 
-//email validation
+/*//email validation
 studentDetails.path('email').validate(async(email)=>{
     const emailcount=await mongoose.models.student.countDocuments({email})
     return !emailcount
-},'Email already exists')
+},'Email already exists')*/
 
 // //phone number validation
 // studentDetails.path('number').validate(async(number)=>{
