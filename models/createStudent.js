@@ -40,6 +40,10 @@ var studentDetails = new mongoose.Schema({
     user: {
         type: String,
     },
+    file:{
+        type:String
+    }
+
 });
 
 

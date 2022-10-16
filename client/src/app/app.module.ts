@@ -20,6 +20,13 @@ import { MeanMay22Component } from './mean-may22/mean-may22.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 
 
+import Quill from 'quill';
+import { QuillModule } from 'ngx-quill';
+import { AddassignmentComponent } from './addassignment/addassignment.component';
+import { AssigmentslistComponent } from './assigmentslist/assigmentslist.component';
+import { UpdateassignmenttrainerComponent } from './updateassignmenttrainer/updateassignmenttrainer.component';
+import {StudentAssignmentComponent} from "./student-assignment/student-assignment.component";
+import { StudentUpdateAssignmentComponent } from './student-update-assignment/student-update-assignment.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +44,19 @@ import { StudentHomeComponent } from './student-home/student-home.component';
  MeanMay22Component,
     StudentsComponent,
      FacultyregistrationComponent,
-     StudentHomeComponent
+     StudentHomeComponent,
+     AddassignmentComponent,
+     AssigmentslistComponent,
+     UpdateassignmenttrainerComponent,
+    StudentAssignmentComponent,
+    StudentUpdateAssignmentComponent
 ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]
