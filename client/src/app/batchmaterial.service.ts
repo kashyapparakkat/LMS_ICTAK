@@ -18,9 +18,13 @@ export class BatchmaterialService {
   getcurrentmaterial(id:any){
     return this.http.get(`${this.server_address}/batchmaterial/${id}`)
     }
-    updatebatchmaterial(id:any,data:any){
+  updatebatchmaterial(id:any,data:any){
       console.log(`batch data ${data}`)
       return this.http.patch(`${this.server_address}/batchmaterial/${id}`,data)
      } 
+
+  deletematerial(id:any){
+      return this.http.delete(`${this.server_address}/batchmaterial/${id}`)
+    }   
   
 }

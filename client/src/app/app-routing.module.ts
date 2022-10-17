@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MeanMay22Component } from './mean-may22/mean-may22.component';
+import { SetupquizComponent } from './setupquiz/setupquiz.component';
 import { SignupacknowledgeComponent } from './signupacknowledge/signupacknowledge.component';
 
 
@@ -18,7 +19,7 @@ import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 const routes: Routes = [{path:'',component:HomeComponent},{path:'login',component:LoginComponent},
 {path:'facultyregistration',component:FacultyregistrationComponent},{path: 'students', component:StudentsComponent} ,{path:'signupacknowledge',component:SignupacknowledgeComponent},
 {path:'forgotpassword',component:ForgotPasswordComponent},{path:'trainer-home',component:TrainerHomeComponent},{path:'trainer-mean',component:TrainerCoursesMeanComponent},
-{path:'mean-may22',component:MeanMay22Component}];
+{path:'mean-may22',component:MeanMay22Component},{path:'setup-quiz',component:SetupquizComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

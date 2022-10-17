@@ -15,6 +15,7 @@ export class MeanMay22Component implements OnInit {
   idfetch:any
   bmaterialsupdate:any
   opencourse:any
+  closecourse:any
 
   @ViewChild('updatematerial') form!: NgForm;
   constructor(public batchmaterialservice:BatchmaterialService) { }
@@ -73,5 +74,31 @@ export class MeanMay22Component implements OnInit {
       })
     })
   }
+  close_course(id:string){
+    this.batchmaterialservice.getcurrentmaterial(id).subscribe((result)=>{
+      this.bmaterialsupdate=JSON.parse(JSON.stringify(result));
+      this.closecourse={
+        module:this.bmaterialsupdate.ModuleName,
+        desc:this.bmaterialsupdate.ModuleDescription,
+        video:this.bmaterialsupdate.Video,
+        resources:this.bmaterialsupdate.Resources,
+        isopen:false
+      }
+      console.log(this.closecourse)
+      this.batchmaterialservice.updatebatchmaterial(id,this.closecourse).subscribe((result)=>{
+      //console.warn(result)
+      alert('Course updated succesfully')
+      this.ngOnInit()
+      })
+    })
+  }
 
+  deletebatchmaterial_func(id:string){
+    if(confirm('Are you sure to delete this module')){
+     this.batchmaterialservice.deletematerial(id).subscribe((res)=>{
+      this.ngOnInit()
+      alert('Deleted successfully')
+     })
+    }
+  }  
 }
