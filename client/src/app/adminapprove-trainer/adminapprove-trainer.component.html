@@ -1,0 +1,57 @@
+<div class='card'>
+    <div class='card-header'>
+     <h4>{{pageTitle}}</h4>
+    </div>
+    
+    <div class='card-body'>            
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <tr>
+             <!-- <th>RegId</th> -->
+              <th>Name</th>
+              <th>Email</th>
+              <th>DOB</th>
+              <th>Subject</th>
+              <th>Add Batch</th>
+              <th>Status</th>
+              
+            </tr>
+           
+          </thead>
+
+         <tbody>  
+           <tr *ngFor='let tutordetails of tutordetails'>
+             
+             <!--<td>{{ tutordetails.id }}</td>--> 
+              <td>{{ tutordetails.name }}</td>
+              <td>{{ tutordetails.email }}</td>
+              <td>{{ tutordetails.dob }}</td>
+              <td>{{ tutordetails.subject }}</td>
+              <td><div>
+                <select name="Batches">  
+                    <option value="0">---Batches---</option>  
+                    <option *ngFor="let batchdetails of batchdetails"  
+                            value={{batchdetails.id}}>  
+                        {{batchdetails.batchname}}  
+                    </option>  
+                </select>  
+                </div></td>
+              <td>
+                <button class="btn btn-warning" style="cursor:pointer" (click)="approvetrainer(tutordetails)"> Approve</button>
+                <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 20px;" (click)="deletetrainer(tutordetails)">Delete</button>
+              </td>
+             
+               <!-- <td><img *ngIf='showImage'
+                [src] = 'product.imageUrl' 
+                [title] = 'product.productName'
+                [style.width.px] = 'imageWidth' 
+                [style.margin.px] = 'imageMargin'></td>-->
+              
+            </tr>     
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

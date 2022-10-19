@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/lms_ictak");
 
 var studentDetails = new mongoose.Schema({
     id: {
@@ -32,8 +33,11 @@ var studentDetails = new mongoose.Schema({
         type: String,
     },
     isEnrolled: {
-        type: Boolean,
+        type: String,
+    },
+    batch:{
+        type:String,
     }
 });
 
-module.exports = mongoose.model("student", studentDetails);
+module.exports = mongoose.model('students', studentDetails);

@@ -21,7 +21,13 @@ var tutorDetails = new mongoose.Schema({
     },
     subject: {
         type: String,
-    }
+    },
+    isEnrolled: {
+        type: String,
+    },
+    batch:{
+        type:String,
+    },
 });
 
 module.exports = mongoose.model("tutor", tutorDetails);

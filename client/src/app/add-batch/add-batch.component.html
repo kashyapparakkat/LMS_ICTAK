@@ -1,0 +1,49 @@
+    <section class="vh-90" style="margin-top:95px;margin-bottom:95px">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form #batchdetails ="ngForm" (ngSubmit)="addbatch()">
+                        <!-- Add Batch -->
+                        <div class="form-outline mb-4" style="margin-top: 10px;" > 
+                            <input type="text" autofocus   name="batchname"  [(ngModel)]="batches.batchname"  #batchname="ngModel" class="form-control form-control-lg"
+                            placeholder="New Batch" />             
+                        </div>
+                        <div class="form-outline mb-4" style="margin-top: 5px;" >
+                            <select class="form-control form-control-lg" name="coursename"  [(ngModel)]="batches.coursename" #course="ngModel" >  
+                                <option value="0">---Course---</option>  
+                                <option *ngFor="let coursedetails of coursedetails"  
+                                        value={{coursedetails.coursename}}>  
+                                    {{coursedetails.coursename}}  
+                                </option>  
+                            </select>  
+                            </div>
+                        <div class="form-outline mb-4" style="margin-top: 10px;" > 
+                            <input type="text-area" name="description" autofocus [(ngModel)]="batches.description"    #description="ngModel"  class="form-control form-control-lg"
+                            placeholder="Description" />             
+                        </div>
+                       
+    
+
+
+
+                    <!-- <div class="form-outline mb-4" style="margin-top: 10px;" > 
+                            <select class="form-control form-control-lg">
+                                <option>--Courses--</option>
+                                <option>sdsds</option>
+                                <option>sads</option>
+                            </select>
+                                      
+                        </div>-->
+                        <input type="submit" value="Add Batch" class="btn btn-primary btn-lg"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;margin-top: 2px; ">          
+                    </form>
+    
+                    
+                </div>
+            </div>
+        </div>
+      </section>
