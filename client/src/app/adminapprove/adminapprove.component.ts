@@ -9,7 +9,7 @@ import { BatchandcourseService } from '../batchandcourse.service';
   styleUrls: ['./adminapprove.component.css']
 })
 export class AdminapproveComponent implements OnInit {
-  
+
   pageTitle="Student Details";
   studentDetails=[{
     id :'',
@@ -19,16 +19,19 @@ export class AdminapproveComponent implements OnInit {
     password:'',
     qualification:'',
     specialisation:'',
-    isEnrolled:'',
-    batchname:''
-   }] 
+    isEnrolled:false,
+    batch:'',
+    gender:'',
+    user:'',
+    file:''
+   }]
 
    batchdetails=[{
     id :'',
     batchname :'',
     description :'',
     status  :''
-    
+
   }]
   constructor(public router:Router,public StudentdetailsService:StudentdetailsService,public BatchandcourseService:BatchandcourseService) { }
  //constructor() { }
@@ -43,9 +46,9 @@ export class AdminapproveComponent implements OnInit {
   this.BatchandcourseService.batchdetails().subscribe((data)=>{
     //console.log('getdata',data)
      this.batchdetails=JSON.parse(JSON.stringify(data));
-   // var datas= console.log('SDDSF',this.coursedetails)    
+   // var datas= console.log('SDDSF',this.coursedetails)
 })
-} 
+}
 approvestudent(data:any){
   console.log("approving.........",data);
   this.StudentdetailsService.approvestudent(data);
@@ -56,8 +59,12 @@ approvestudent(data:any){
 deletestudnt(data:any){
  // console.log("deleting",data);
   this.StudentdetailsService.deletestudent(data._id).subscribe(data=>
-    {console.log(data)});
-    alert("Deleted Student"+ data.name +"Succesfully");
-    this.router.navigate(['/adminapprove']);
+    {
+      console.log(data)
+
+      //this.router.navigate(['/adminapprove']);
+    this.ngOnInit()
+    });
+  alert("Deleted Student"+ data.name +"Succesfully");
   }
 }

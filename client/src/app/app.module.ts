@@ -17,6 +17,23 @@ import { AdminapproveTrainerComponent } from './adminapprove-trainer/adminapprov
 //import { AddcourseandbatchComponent } from './addcourseandbatch/addcourseandbatch.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { AddBatchComponent } from './add-batch/add-batch.component';
+import { SignupacknowledgeComponent } from './signupacknowledge/signupacknowledge.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { TrainerCoursesMeanComponent } from './trainer-courses-mean/trainer-courses-mean.component';
+
+import { MeanMay22Component } from './mean-may22/mean-may22.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
+import { SetupquizComponent } from './setupquiz/setupquiz.component';
+
+
+import Quill from 'quill';
+import { QuillModule } from 'ngx-quill';
+import { AddassignmentComponent } from './addassignment/addassignment.component';
+import { AssigmentslistComponent } from './assigmentslist/assigmentslist.component';
+import { UpdateassignmenttrainerComponent } from './updateassignmenttrainer/updateassignmenttrainer.component';
+import {StudentAssignmentComponent} from "./student-assignment/student-assignment.component";
+import { StudentUpdateAssignmentComponent } from './student-update-assignment/student-update-assignment.component';
 
 @NgModule({
   declarations: [
@@ -27,19 +44,49 @@ import { AddBatchComponent } from './add-batch/add-batch.component';
     HomeComponent,
  StudentsComponent,
  FacultyregistrationComponent,
- AdminhomeComponent,
+ /*AdminhomeComponent,
  AdminapproveComponent,
  AdminapproveTrainerComponent,
  //AddcourseandbatchComponent,
  AddCourseComponent,
- AddBatchComponent
+ AddBatchComponent*/
+    SignupacknowledgeComponent,
+    ForgotPasswordComponent,
+    TrainerHomeComponent,
+    TrainerCoursesMeanComponent,
+    MeanMay22Component,
+    StudentsComponent,
+/*
+    FacultyregistrationComponent,
+*/
+    StudentHomeComponent,
+    AddassignmentComponent,
+    AssigmentslistComponent,
+    UpdateassignmenttrainerComponent,
+    StudentAssignmentComponent,
+    StudentUpdateAssignmentComponent,
+    SetupquizComponent,
+    AdminhomeComponent,
+    AdminapproveComponent,
+    AdminapproveTrainerComponent,
+    //AddcourseandbatchComponent,
+    AddCourseComponent,
+    AddBatchComponent
 ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     FormsModule,
     HttpClientModule
-  ],
+],
+  /*imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+
+    HttpClientModule,
+    QuillModule
+  ],*/
   providers: [],
   bootstrap: [AppComponent]
 })

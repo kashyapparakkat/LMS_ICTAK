@@ -10,16 +10,34 @@ var tutorDetails = new mongoose.Schema({
     email: {
         type: String,
     },
-    username: {
-        type: String,
+    //username: {
+      //  type: String,
+    //},
+    number:{
+        type:String,
     },
     password: {
         type: String,
     },
-    dob: {
+    //dob: {
+        //type: String,
+    //},
+    //subject: {
+       // type: String,
+    //}
+    qualification: {
         type: String,
     },
-    subject: {
+    specialisation: {
+        type: String,
+    },
+    isEnrolled: {
+        type: Boolean,
+    },
+    gender: {
+        type: String,
+    },
+    user: {
         type: String,
     },
     isEnrolled: {
@@ -27,7 +45,14 @@ var tutorDetails = new mongoose.Schema({
     },
     batch:{
         type:String,
-    },
+    }
+
 });
+tutorDetails.path('email').validate(async(email)=>{
+    const emailcount=await mongoose.models.tutor.countDocuments({email})
+    return !emailcount
+},'Email already exists')
+
+
 
 module.exports = mongoose.model("tutor", tutorDetails);

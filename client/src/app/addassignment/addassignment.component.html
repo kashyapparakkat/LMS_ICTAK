@@ -1,0 +1,30 @@
+<div class="rich container-fluid h-custom">
+
+  <div class="col-md-6 col-lg-5 col-xl-5">
+    <form #assignform="ngForm" (ngSubmit)="assignCreate()">
+        <div class="form-outline mb-4" ><h3 style="color:deepskyblue;">Assignment Creation</h3></div>
+        <div class="form-outline mb-3">
+          <label class="form-label" for="form3Example4">Title</label>
+          <input type="text"  name="fname"  [(ngModel)]="assign.title" #fname="ngModel" required class="form-control form-control-lg"
+            placeholder="Fullname" />
+            <span *ngIf="fname.touched && fname.invalid" style="color:red">give title</span>
+          <!-- <label class="form-label" for="form3Example3">Enter Fullname</label> -->
+        </div>
+        <div class="form-outline mb-3">
+  <input type="date" name="fname"  [(ngModel)]="assign.date" #date="ngModel" required class="form-control form-control-lg"
+  placeholder="">
+  <span *ngIf="date.touched && date.invalid" style="color:red">date</span>
+</div>
+  <div class="form-outline mb-3">
+<quill-editor name="description"  [(ngModel)]="assign.description" #description="ngModel" class="form-control form-control-lg"
+placeholder="description"  ></quill-editor>
+</div>
+
+
+<button type="submit" [disabled]="assignform.invalid" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+            </form>
+        </div>
+
+      
+      </div>

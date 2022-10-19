@@ -1,57 +1,85 @@
-<section class="vh-90" style="margin-top:95px;margin-bottom:95px">
+<section class="vh-90">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
+      <div class="col-md-9 col-lg-6 col-xl-5" style="margin-bottom:600px">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           class="img-fluid" alt="Sample image">
       </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form #studentsign="ngForm" (ngSubmit)="studentSign(studentsign.value)">
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin-top:10px;margin-bottom:95px">
+       
+          <form #loginform="ngForm" (ngSubmit)="addUser()">
 
+            <div class="form-outline mb-4"><h3 style="color:deepskyblue;">Student Registration</h3></div>
           <!-- name input -->
           <div class="form-outline mb-4">
-            <input type="Name" id="form3Example3" required ngModel name="fullname" #fname="ngModel" class="form-control form-control-lg"
-              placeholder="Enter your full name" />
+            <label class="form-label" for="form3Example4">Fullname</label>
+            <input type="Name" id="form3Example3" required [(ngModel)]="userSingnup.name" name="fullname" #fname="ngModel" class="form-control form-control-lg"
+              placeholder="Full name" />
               <span *ngIf="fname.touched && fname.invalid" style="color:red">Enter Fullname</span>
             <label class="form-label" for="form3Example3"></label>
           </div>
 
           <!-- email input -->
           <div class="form-outline mb-3">
-            <input type="e-mail" email required name="email" ngModel #email="ngModel" class="form-control form-control-lg"
-              placeholder="Enter valid e-mail" />
-              <span *ngIf="email.touched && email.invalid" style="color:red">Enter valid Email</span>
+            <label class="form-label" for="form3Example4">Email</label>
+            <input type="e-mail" email required name="email" [(ngModel)]="userSingnup.email" #email="ngModel" class="form-control form-control-lg"
+              placeholder="Enter E-mail" />
+              <span *ngIf="email.touched && email.invalid" style="color:red"> Email</span>
             <label class="form-label" for="form3Example4"></label>
           </div>
 
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example5" ngModel required minlength="6" name="pwd" #pwd="ngModel" class="form-control form-control-lg"
-              placeholder="Enter password" />
-              <span *ngIf="pwd.touched && pwd.invalid" style="color:red">Enter password</span>
+            <label class="form-label" for="form3Example4">Phonenumber</label>
+            <input type="text"  [(ngModel)]="userSingnup.number" name="pnum" #pnum="ngModel"  required pattern="[6-9]{1}[0-9]{9}"  class="form-control form-control-lg"
+              placeholder="Phonenumber" />
+              <span *ngIf="pnum.touched && pnum.invalid" style="color:red"> Phonenumber(10digits)</span>
+          </div>
+
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Passsword</label>
+            <input type="password" id="form3Example5" [(ngModel)]="userSingnup.password" required minlength="6" name="pwd" #pwd="ngModel" class="form-control form-control-lg"
+              placeholder="Password" />
+              <span *ngIf="pwd.touched && pwd.invalid" style="color:red"> Password with 6 letters</span>
             <label class="form-label" for="form3Example4"></label>
           </div>
 
           <div class="form-outline mb-3">
-            <input type="confirm password" id="form3Example6" class="form-control form-control-lg"
-              placeholder="Confirm password" />
-            <label class="form-label" for="form3Example4"></label>
-          </div>
+            <label class="form-label" for="form3Example4">Confirm Passsword</label>
+            <input type="password" pattern="{{userSingnup.password}}" ngModel #cwd="ngModel" name="cwd" required class="form-control form-control-lg"
+              placeholder="confirm password" />
+              <span *ngIf="cwd.touched && cwd.invalid " style="color:red"> Re-enter password correctly</span>
+            </div>
+        
+            <div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+              <label> Gender</label>
+              <br>
+              <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+              <label class="btn btn-outline-dark" for="btnradio1">M</label>
+            
+              <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio2">F</label>
+              <span *ngIf="gen.touched && gen.invalid" style="color:red">select gender</span>
+            </div>
+         
+
 
           <div class="form-outline mb-3">
-            <input type="number" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Mobile No." />
-            <label class="form-label" for="form3Example7"></label>
-          </div>
-
-          <div class="form-outline mb-3">
-            <input type="Qualification" required ngModel name="qualification" #qual="ngModel" class="form-control form-control-lg"
-              placeholder="Qualification" />
+            <!-- <input type="Qualification" required [(ngModel)]="userSingnup.qualification" name="qualification" #qual="ngModel" class="form-control form-control-lg"
+              placeholder="Qualification" /> -->
+              <label class="form-label" for="form3Example4">Qualification</label>
+              <select   required [(ngModel)]="userSingnup.qualification" name="qualification" #qual="ngModel" class="form-control form-control-lg"
+              placeholder="Qualification" >
+              
+                <option *ngFor="let course of courses" [value]="course.name">{{course.name}}</option>
+              </select>
               <span *ngIf="qual.touched && qual.invalid" style="color:red">Enter Qualification</span>
             <label class="form-label" for="form3Example4"></label>
+           
           </div>
 
           <div class="form-outline mb-3">
-            <input type="Specialisation" name="specialisation" required ngModel #spl="ngModel" class="form-control form-control-lg"
+            <label class="form-label" for="form3Example4">Specialisation</label>
+            <input type="Specialisation" name="specialisation" required [(ngModel)]="userSingnup.specialisation" #spl="ngModel" class="form-control form-control-lg"
               placeholder="Specialisation" />
               <span *ngIf="spl.touched && spl.invalid" style="color:red">Enter Specialisation</span>
             <label class="form-label" for="form3Example4"></label>
@@ -60,9 +88,9 @@
           
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" [disabled]="studentsign.invalid" class="btn btn-primary btn-lg"
+            <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Want to sign? <a href="login"
+              <p class="small fw-bold mt-2 pt-1 mb-0">Want to Login? <a href="login"
                 class="link-danger" style="text-decoration: none;">Login</a></p>
           </div>
 

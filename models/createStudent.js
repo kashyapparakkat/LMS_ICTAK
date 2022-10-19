@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/lms_ictak");
 
 var studentDetails = new mongoose.Schema({
     id: {
@@ -33,11 +32,43 @@ var studentDetails = new mongoose.Schema({
         type: String,
     },
     isEnrolled: {
-        type: String,
+        type: Boolean,
     },
     batch:{
         type:String,
+    },
+    gender: {
+        type: String,
+    },
+    user: {
+        type: String,
+    },
+    file:{
+        type:String
     }
+
 });
 
-module.exports = mongoose.model('students', studentDetails);
+const student = mongoose.model('student',studentDetails);
+
+module.exports = student;
+
+
+/*//email validation
+studentDetails.path('email').validate(async(email)=>{
+    const emailcount=await mongoose.models.student.countDocuments({email})
+    return !emailcount
+},'Email already exists')*/
+
+// //phone number validation
+// studentDetails.path('number').validate(async(number)=>{
+//     const numbercount=await mongoose.models.student.countDocuments({number})
+//     return !numbercount
+// },'Phone Number  already exists')
+
+/*
+
+const student = mongoose.model('student',studentDetails);
+
+module.exports = student;
+>>>>>>> 0b0e55312ece14c9cf405a1926555867558e1bc5*/
