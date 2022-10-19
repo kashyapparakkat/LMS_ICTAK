@@ -46,7 +46,7 @@ catch(er){
     console.log("error"+er)
 }
 })
-router.get('/:id',(req, res) => {
+router.get('/assign/:id',(req, res) => {
 
     res.header("Access-Control-Allow-Orgin","*");
     res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')

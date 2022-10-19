@@ -35,7 +35,7 @@ export class TrainersserviceService {
   }
 
   getassignmentId(id:any){
-    return this.http.get("http://localhost:3000/api/"+id);
+    return this.http.get("http://localhost:3000/api/assign/"+id);
   }
 
   editAssign(assign:any)

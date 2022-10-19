@@ -77,7 +77,8 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QuillModule
 ],
   /*imports: [
     BrowserModule,
