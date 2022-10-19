@@ -1,0 +1,26 @@
+    <section class="vh-90" style="margin-top:95px;margin-bottom:95px">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form  #coursedetails="ngForm" (ngSubmit)="addcourse()" >
+                        <!-- Add Course -->
+                        
+                        <div class="form-outline mb-4" style="margin-top: 10px;" > 
+                            <input type="text" autofocus   class="form-control form-control-lg"
+                            placeholder="New Course" name="coursename"  [(ngModel)]="Courses.coursename"  #coursename="ngModel"  />             
+                        </div>
+                        <div class="form-outline mb-4" style="margin-top: 10px;" > 
+                            <input type="text-area" name="coursedescription" autofocus [(ngModel)]="Courses.description"    #coursedescription="ngModel"  class="form-control form-control-lg"
+                            placeholder="Description" />             
+                        </div>
+                        <input type="submit" value="Add Course" class="btn btn-primary btn-lg"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;margin-top: -20px; ">    
+                    </form>                   
+                </div>
+            </div>
+        </div>
+      </section>

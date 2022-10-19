@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 //import { Usermodel } from '../facultyregistration/users.model';
 import { UserserviceService } from '../services/userservice.service';
 import { Router } from '@angular/router';
@@ -10,16 +11,16 @@ import { Router } from '@angular/router';
 })
 export class StudentsComponent implements OnInit {
 
- 
+
 
     title:String="Sign Up"
-    
-    //mobNumberPattern = "/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/"; 
+
+    //mobNumberPattern = "/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/";
     loginUser(item:any){
       alert("completed");
-  
+
     }
-  
+
     constructor(private userService:UserserviceService,private router:Router) { }
     //userSingnup= new Usermodel("","","","","","","","","",0,false);
     selected:String="Other";
@@ -55,17 +56,16 @@ export class StudentsComponent implements OnInit {
 ]
 
 
-   
-    
+
+
     ngOnInit(): void {
     }
-  
+
     addUser()
     {
       this.userService.newUser(this.userSingnup);
       this.router.navigate(['']);
     }
-    
-  
+
+
   }
-  

@@ -11,6 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { FacultyregistrationComponent } from './facultyregistration/facultyregistration.component';
 
 import { StudentsComponent } from './students/students.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { AdminapproveComponent } from './adminapprove/adminapprove.component';
+import { AdminapproveTrainerComponent } from './adminapprove-trainer/adminapprove-trainer.component';
+//import { AddcourseandbatchComponent } from './addcourseandbatch/addcourseandbatch.component';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { AddBatchComponent } from './add-batch/add-batch.component';
 import { SignupacknowledgeComponent } from './signupacknowledge/signupacknowledge.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
@@ -38,29 +44,49 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
     HomeComponent,
  StudentsComponent,
  FacultyregistrationComponent,
- SignupacknowledgeComponent,
- ForgotPasswordComponent,
- TrainerHomeComponent,
- TrainerCoursesMeanComponent,
- MeanMay22Component,
+ /*AdminhomeComponent,
+ AdminapproveComponent,
+ AdminapproveTrainerComponent,
+ //AddcourseandbatchComponent,
+ AddCourseComponent,
+ AddBatchComponent*/
+    SignupacknowledgeComponent,
+    ForgotPasswordComponent,
+    TrainerHomeComponent,
+    TrainerCoursesMeanComponent,
+    MeanMay22Component,
     StudentsComponent,
-     FacultyregistrationComponent,
-     StudentHomeComponent,
-     AddassignmentComponent,
-     AssigmentslistComponent,
-     UpdateassignmenttrainerComponent,
+/*
+    FacultyregistrationComponent,
+*/
+    StudentHomeComponent,
+    AddassignmentComponent,
+    AssigmentslistComponent,
+    UpdateassignmenttrainerComponent,
     StudentAssignmentComponent,
     StudentUpdateAssignmentComponent,
-     SetupquizComponent
+    SetupquizComponent,
+    AdminhomeComponent,
+    AdminapproveComponent,
+    AdminapproveTrainerComponent,
+    //AddcourseandbatchComponent,
+    AddCourseComponent,
+    AddBatchComponent
 ],
   imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+],
+  /*imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
 
     HttpClientModule,
     QuillModule
-  ],
+  ],*/
   providers: [],
   bootstrap: [AppComponent]
 })

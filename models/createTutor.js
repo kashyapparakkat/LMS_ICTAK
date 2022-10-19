@@ -40,6 +40,12 @@ var tutorDetails = new mongoose.Schema({
     user: {
         type: String,
     },
+    isEnrolled: {
+        type: String,
+    },
+    batch:{
+        type:String,
+    }
 
 });
 tutorDetails.path('email').validate(async(email)=>{

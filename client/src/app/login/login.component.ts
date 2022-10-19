@@ -7,6 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+  /*login(item:any) {
+    alert("Login successfully")
+  }*/
+
   title:String="Login"
   //login(item:any){
    // alert("Login successfully")

@@ -2,21 +2,18 @@ const student = require("../models/createStudent");
 const express = require("express");
 const router = express.Router();
 const uniqueID = require("../utils/uniqueID");
+const { param } = require("express/lib/request");
 const bcrypt=require("bcrypt");
 const path = require("path");
 
 const multer=require("multer");//for file uploading
 router.use(express.static('uploads'));
-//const Google_drive_id='1SIUewKVIpdsryG7X9JwL0ZlI7DZbLsqQ'
 
 
 const fs = require('fs')
 const { google } = require('googleapis')
 
 const GOOGLE_API_FOLDER_ID = '1SIUewKVIpdsryG7X9JwL0ZlI7DZbLsqQ'
-
-
-
 
 
 
@@ -48,14 +45,30 @@ router.get("/get-student-details", async function (req, res) {
         res.status(500)
         res.json(err);
     }
+}
+
+
+
+);
+
+router.get('/studentDetails',function(req,res){
+    
+    student.find()
+                .then(function(student){
+                    res.send(student);
+                });
 });
 
 
+/*
+// create Scenario api
+router.post("/add-student", async (req, res) => {
+    try {
+        console.log("User email -- " + req.body.email);
+*/
 
 
 //fileuploading 
-
-//let upload=multer({dest:'uploads/'});
 
 var storage=multer.diskStorage({
     destination:function(req,file,cb){
@@ -290,5 +303,34 @@ router.get("/validate-student-details", async function (req, res) {
         res.json(err);
     }
 });
+
+router.put('/approvestudent',(req,res)=>{
+    console.log("apiiii",req.body.batch);  
+    id=req.body._id,
+    batch=req.body.batch,
+    isEnrolled="True"  
+ 
+ console.log("apiiii",id); 
+ 
+
+ student.findByIdAndUpdate({
+     "_id":id },
+     {$set:{"isEnrolled":"True"},
+     "batch":batch}
+    
+)
+    
+});
+
+ router.delete('/deletestudent/:id', async function(req,res){
+    // router.delete(id,async function(req,res)){
+        id = req.params.id;
+    console.log(id);
+    student.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});     
 
 module.exports = router;
