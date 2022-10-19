@@ -18,6 +18,7 @@ import { TrainerCoursesMeanComponent } from './trainer-courses-mean/trainer-cour
 
 import { MeanMay22Component } from './mean-may22/mean-may22.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
+import { SetupquizComponent } from './setupquiz/setupquiz.component';
 
 
 import Quill from 'quill';
@@ -49,7 +50,8 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
      AssigmentslistComponent,
      UpdateassignmenttrainerComponent,
     StudentAssignmentComponent,
-    StudentUpdateAssignmentComponent
+    StudentUpdateAssignmentComponent,
+     SetupquizComponent
 ],
   imports: [
     BrowserModule,

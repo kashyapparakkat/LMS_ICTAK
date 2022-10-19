@@ -22,6 +22,7 @@ export class CoursematerialService {
   }
 
  updatematerial(id:any,data:any){
+  console.log(`course data ${data}`)
   return this.http.patch(`${this.server_address}/material/${id}`,data)
  } 
 

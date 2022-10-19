@@ -1,0 +1,134 @@
+
+
+<div class="text-center"><h3>QUIZ</h3></div>
+
+
+
+<!-- to show material -->
+
+<div class="card" style="width: 90%;margin:auto;margin-top: 5px;" *ngFor="let i of quiz">
+  <div class="card-header">{{i.Question}}<span style="float: right;"><a><i class="fa-solid fa-pen-to-square fa-2x" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"></i></a><a (click)="deletequiz_func(i._id)"><i class="fa-sharp fa-solid fa-trash fa-2x" style="margin-left: 10px;color:red;"></i></a> </span></div>
+  <div class="card-body">
+<ul>
+    <li><h6>{{i.Opt1}}</h6></li>
+    <li><h6>{{i.Opt2}}</h6></li>
+    <li><h6>{{i.Opt3}}</h6></li>
+    <li><h6>{{i.Opt4}}</h6></li>
+</ul>
+<div><h6>{{i.Answer}}</h6></div>
+  </div>
+</div>
+
+
+
+
+
+<hr>
+
+
+<!-- To ADD materials -->
+
+
+<!-- Button trigger modal -->
+<div>
+    <span>
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 10px;margin: auto;margin-left: 70px;">
+   Add Question
+</button>
+</span>
+<span>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 10px;margin: auto;margin-left: 70px;">
+       Clear Quiz
+    </button>
+    </span>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Question</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" #addquestion ="ngForm"  class="col-md-6" style="margin-top: 10px;width: 100%;" (ngSubmit)="addquiz_func()">
+                <div class="form-group">
+                <label for="">Question:</label>
+                <input type="text" class="form-control" name="question" [(ngModel)]="quizzes.question" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 1:</label>
+                <input type="text" class="form-control" name="opt1" [(ngModel)]="quizzes.opt1" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 2:</label>
+                <input type="text" class="form-control" name="opt2" [(ngModel)]="quizzes.opt2" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 3:</label>
+                <input type="text" class="form-control" name="opt3" [(ngModel)]="quizzes.opt3" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 4:</label>
+                <input type="text" class="form-control" name="opt4" [(ngModel)]="quizzes.opt4" required>
+                </div>
+                <div class="form-group">
+                <label for="">Answer:</label>
+                <input type="" class="form-control" name="answer" [(ngModel)]="quizzes.answer" required>
+                </div>
+                
+                <div class="form-group" style="margin-bottom:10px;margin-top:10px;">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 10px;">Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Question</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" #updatequestion ="ngForm"  class="col-md-6" style="margin-top: 10px;width: 100%;">
+                <div class="form-group">
+                <label for="">Question:</label>
+                <input type="text" class="form-control" name="question" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 1:</label>
+                <input type="text" class="form-control" name="opt1"  required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 2:</label>
+                <input type="" class="form-control" name="opt2" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 3:</label>
+                <input type="" class="form-control" name="opt3" required>
+                </div>
+                <div class="form-group">
+                <label for="">Option 4:</label>
+                <input type="" class="form-control" name="opt4" required>
+                </div>
+                <div class="form-group">
+                <label for="">Answer:</label>
+                <input type="" class="form-control" name="answer" required>
+                </div>
+                
+                <div class="form-group" style="margin-bottom:10px;margin-top:10px;">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 10px;">Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
