@@ -40,14 +40,18 @@ var studentDetails = new mongoose.Schema({
     user: {
         type: String,
     },
+    file:{
+        type:String
+    }
+
 });
 
 
-//email validation
+/*//email validation
 studentDetails.path('email').validate(async(email)=>{
     const emailcount=await mongoose.models.student.countDocuments({email})
     return !emailcount
-},'Email already exists')
+},'Email already exists')*/
 
 // //phone number validation
 // studentDetails.path('number').validate(async(number)=>{

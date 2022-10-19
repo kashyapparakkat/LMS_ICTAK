@@ -1,18 +1,19 @@
 const express = require("express");
 const path = require("path");
 const http = require("http");
-const bodyparser = require('body-parser')
-const cors = require('cors')
+const bodyparser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose')
 const db = require("./database");
 const coursematerial = require('./models/coursematerial')
+const batchmaterial = require('./models/batchmaterial')
 const quiz = require('./models/quiz')
 
 const multer=require("multer");//for file uploading
+const assignment=require('./models/assignment')
 
 
 const bcrypt=require('bcrypt');//encryption of password
-
 
 
 // load config
@@ -22,9 +23,9 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+//app.use(express.static('uploads'));
 
-const route = require('./routes/route.js');
-const batchmaterial = require("./models/batchmaterial");
+const route = require('./routes/route.js')
 
 // connect to mongo
 /*mongoose.connect('mongodb://localhost:27017/dbName')
@@ -40,31 +41,10 @@ mongoose.connection.on('error', (err)=>{
 
 //adding cors and body parser for middleware
 app.use(bodyparser.json())
-app.use(cors())
+app.use(cors());
 
 
 
-//fileuploading 
-
-let upload=multer({dest:'uploads/'});
-app.post('/file',upload.single('file'),(req,res,next)=>{
-  try{
-
-    const file=req.file;
-    console.log(file);
-    if(!file){
-        const error=new Error("Please Upload a file");
-        error.httpStatusCode=400;
-        return next(error)
-    }
-    res.send(file)
-  }
-  catch(error){
-    console.log("Error occured"+error);
-  }
-
-
-})
 
 
 //static files
@@ -258,6 +238,8 @@ app.delete('/api/material/:id',async(req,res)=>{
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.sendFile(home);
 });
+
+
 
 app.get('/hi:abc', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));

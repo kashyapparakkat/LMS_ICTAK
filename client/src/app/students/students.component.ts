@@ -22,23 +22,39 @@ export class StudentsComponent implements OnInit {
   
     constructor(private userService:UserserviceService,private router:Router) { }
     //userSingnup= new Usermodel("","","","","","","","","",0,false);
+    selected:String="Other";
     userSingnup={
 
       name:'',
       email:'',
       usename:'',
       password:'',
-     user:'student',
+       user:'student',
       id:'',
       dob:'',
-     subject:'',
-      qualification:'',
+       subject:'',
+      qualification:this.selected,
       specialisation:'',
       number:'',
-      isEnrolled:false
- 
- 
+      isEnrolled:false,
+      gender:''
+
    }
+
+  courses=[{
+    id:1,name:"B.tech"
+  },
+  {
+    id:2,name:"MCA"
+  },{
+    id:3,name:"M.tech"
+  },
+  {
+    id:4,name:"Other"
+  }
+]
+
+
    
     
     ngOnInit(): void {
