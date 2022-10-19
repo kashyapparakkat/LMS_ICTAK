@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginResponse= {
-    success: '',
+    success: true,
     message: '',
     user: ''
   }
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       this.loginResponse=JSON.parse(JSON.stringify(data))
       //console.log(this.loginResponse)
       console.log("this.loginResponse.user",this.loginResponse.user);
+      console.log("this.loginResponse.success", this.loginResponse.success)
       if(this.loginResponse.user=="student"){
         console.log("Inside student home navigation")
         this.router.navigate(['/student-home']);
@@ -43,10 +44,14 @@ export class LoginComponent implements OnInit {
         console.log("Inside trainer home navigation")
         this.router.navigate(['/trainer-home'])
       }
-      else{
-        alert("Username or password is not correct")
-      }
-    });
+    },
+      (err) => {
+
+        //alert("  Email  already exists");
+          alert("Username or password is not correct")
+        // this.router.navigate(['']);
+
+      });
 
       //else{
       //this.router.navigate(['/admin-home'])

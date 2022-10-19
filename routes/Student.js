@@ -200,12 +200,9 @@ router.post('/login',(req,res)=>{
     student.find({email:req.body.user.email})
     //.exec()
  .then((result)=>{
-       // if(result.length<1){
-            
-           // return res.status(404).res.json({success:false,message:"user not found"})
-            
-
-        //}
+        if(result.length<1){
+           return res.status(404).res.json({success:false,message:"user not found"})
+        }
         //const user1=result[0];
         /*if(result){
             console.log("Result===",result)

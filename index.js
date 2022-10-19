@@ -6,6 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const db = require("./database");
 const coursematerial = require('./models/coursematerial')
+const batchmaterial = require('./models/batchmaterial')
 
 const multer=require("multer");//for file uploading
 const assignment=require('./models/assignment')
