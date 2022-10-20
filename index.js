@@ -16,6 +16,7 @@ const assignment=require('./models/assignment')
 
 const bcrypt=require('bcrypt');//encryption of password
 
+const port = process.env.PORT || "3000";
 
 // load config
 // dotenv.config({ path: "./config/config.env" });
@@ -24,6 +25,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+
+app.use(express.static("./dist/client"));
 //app.use(express.static('uploads'));
 
 const route = require('./routes/route.js')
@@ -52,10 +55,10 @@ app.use(cors());
 //app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static('upload'))
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
     res.send('Server started')
-});
+});*/
 
 app.post('/forgot-password',(req,res)=>{
     console.log(req.body);
@@ -248,6 +251,15 @@ app.get('/hi:abc', function (req, res) {
 });*/
 app.use("/api", route)
 
+app.get('/*', function(req, res) {
+    res.header("Access-Control-Allow-Origin",'*');
+    res.header("Access-Control-Allow-method:GET,POST,PUT,DELETE");
+    res.sendFile(path.join(__dirname + '/dist/client/index.html'));
+});
+
 db()
 
-app.listen("3000");
+//app.listen("3000");
+app.listen(port,()=>{
+    console.log("Server Ready on 3000");
+});

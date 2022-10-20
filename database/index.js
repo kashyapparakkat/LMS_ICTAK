@@ -7,7 +7,9 @@ const AddBatch      = require('../models/addbatch');
 
 const connecttDB = async () => {
     try {
-        mongoose.connect("mongodb://localhost:27017/lms_ictak");
+        //mongoose.connect("mongodb://localhost:27017/lms_ictak");
+        //mongoose.connect("mongodb://localhost:27017/lms_ictak");
+        mongoose.connect('mongodb+srv://user:User%40123456@cluster0.cm452yw.mongodb.net/lms_ictak?retryWrites=true&w=majority');
         console.log("Mongo DB connected ...")
 
     }catch(err) {

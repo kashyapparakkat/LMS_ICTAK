@@ -7,13 +7,18 @@ import { Router } from '@angular/router';
 })
 export class TrainersserviceService {
 
+  server_Address: String = ""
+  //server_Address: String = "http://localhost:3000/api"
   constructor(private http:HttpClient,private router:Router) { }
+
+
+
 
 
   getAssignments()
   {
 
-    return this.http.get("http://localhost:3000/api/getassign")
+    return this.http.get(`${this.server_Address}/getassign`)
 
 
   }
@@ -23,32 +28,32 @@ export class TrainersserviceService {
   assignCreate(assignment:any){
 
 
-    return this.http.post("http://localhost:3000/api/addassign",{assignment})
+    return this.http.post(`${this.server_Address}/addassign`,{assignment})
     .subscribe(data=>{console.log(data)})
 
 
   }
 
   deleteAssign(id:any){
-    return this.http.delete("http://localhost:3000/api/remove/"+id)
+    return this.http.delete(`${this.server_Address}/remove/`+id)
 
   }
 
   getassignmentId(id:any){
-    return this.http.get("http://localhost:3000/api/assign/"+id);
+    return this.http.get(`${this.server_Address}/assign/`+id);
   }
 
   editAssign(assign:any)
     {
       console.log('client update')
-      return this.http.put("http://localhost:3000/api/update",assign)
+      return this.http.put(`${this.server_Address}/update`,assign)
       .subscribe(data =>{console.log(data)})
     }
 
   editStudentSubmissionText(assign:any)
   {
     console.log('client update')
-    return this.http.put("http://localhost:3000/api/updateSubmissionText",assign)
+    return this.http.put(`${this.server_Address}/updateSubmissionText`,assign)
       .subscribe(data =>{console.log(data)})
   }
   }

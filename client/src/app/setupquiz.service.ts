@@ -6,18 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SetupquizService {
 
-  server_address : string = 'http://localhost:3000/api'
+  //server_Address : string = 'http://localhost:3000/api'
+  server_Address: String = ""
 
   constructor(public http:HttpClient) { }
 
   viewquiz(){
-    return this.http.get(`${this.server_address}/setup-quiz`)
+    return this.http.get(`${this.server_Address}/setup-quiz`)
   }
 
   addquestion(data:any){
-    return this.http.post<any>(`${this.server_address}/setup-quiz`,data)
+    return this.http.post<any>(`${this.server_Address}/setup-quiz`,data)
   }
   deletequestion(id:any){
-    return this.http.delete(`${this.server_address}/setup-quiz/${id}`)
+    return this.http.delete(`${this.server_Address}/setup-quiz/${id}`)
   }
 }
