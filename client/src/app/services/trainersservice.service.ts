@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class TrainersserviceService {
 
-  server_Address: String = ""
+  server_Address: String = "api"
   //server_Address: String = "http://localhost:3000/api"
   constructor(private http:HttpClient,private router:Router) { }
 

@@ -7,7 +7,7 @@ import {HttpClient ,HttpResponse} from '@angular/common/http'
 export class tutordetailsService {
 
   //server_Address : string = 'http://localhost:3000/api'
-  server_Address: String = ""
+  server_Address: String = "api"
 
   constructor(private http:HttpClient) { }
 

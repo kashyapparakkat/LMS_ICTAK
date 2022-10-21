@@ -7,7 +7,7 @@ import {HttpClient ,HttpResponse} from '@angular/common/http'
 })
 export class BatchandcourseService {
 
-  server_Address: String = ""
+  server_Address: String = "api"
   //server_Address: String = "http://localhost:3000/api"
 
   constructor(private http:HttpClient) { }

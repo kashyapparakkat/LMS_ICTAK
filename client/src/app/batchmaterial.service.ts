@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 export class BatchmaterialService {
 
   //server_Address : string = 'http://localhost:3000/api'
-  server_Address: String = ""
+  server_Address: String = "api"
 
   constructor(public http:HttpClient) { }
 
