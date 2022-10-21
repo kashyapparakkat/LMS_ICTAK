@@ -16,45 +16,45 @@ export class FacultyregistrationComponent implements OnInit {
   file:any;
   resume:any;
   emailname:any;
-  
- 
-    loginUser(item:any){
+
+
+  loginUser(item:any){
     alert("completed");
 
   }
 
   constructor(private userService:UserserviceService,private router:Router,public http:HttpClient) { }
   selected:String="Other";
-   userSingnup={
+  userSingnup={
 
-     name:'',
-     email:'',
-     usename:'',
-     password:'',
-     user:'teacher',
-     id:'',
-     dob:'',
-      subject:'',
-     qualification:'',
-     specialisation:'',
-     number:'',
-     isEnrolled:false,
-     gender:''
+    name:'',
+    email:'',
+    usename:'',
+    password:'',
+    user:'teacher',
+    id:'',
+    dob:'',
+    subject:'',
+    qualification:'',
+    specialisation:'',
+    number:'',
+    isEnrolled:false,
+    gender:''
 
 
   }
   courses=[{
     id:1,name:"B.tech"
   },
-  {
-    id:2,name:"MCA"
-  },{
-    id:3,name:"M.tech"
-  },
-  {
-    id:4,name:"Other"
-  }
-]
+    {
+      id:2,name:"MCA"
+    },{
+      id:3,name:"M.tech"
+    },
+    {
+      id:4,name:"Other"
+    }
+  ]
 
   ngOnInit(): void {
   }
@@ -67,37 +67,37 @@ export class FacultyregistrationComponent implements OnInit {
     }
 
   }
-  
+
 
   emailValid(){
-   // this.userSingnup.email=this.emailname;
-  console.log(this.userSingnup.email);
-  this.emailname=this.userSingnup.email;
-  
-  console.log(this.emailname)
-  return this.http.get('http://localhost:3000/api/validate',this.emailname)
-  .subscribe((res) => {
-   alert("Valid email ");
-    //this.router.navigate(['login']);
-}, (err) => {
-   
-    alert("  Email  already exists");
-   // this.router.navigate(['']);
-    
-});
+    // this.userSingnup.email=this.emailname;
+    console.log(this.userSingnup.email);
+    this.emailname=this.userSingnup.email;
+
+    console.log(this.emailname)
+    return this.http.get('http://localhost:3000/api/validate',this.emailname)
+      .subscribe((res) => {
+        alert("Valid email ");
+        //this.router.navigate(['login']);
+      }, (err) => {
+
+        alert("  Email  already exists");
+        // this.router.navigate(['']);
+
+      });
 
 
   }
 
   addUser()
   {
-      const formdata=new FormData();
-      formdata.append('file',this.resume);
-      this.http.post('http://localhost:3000/api/file',formdata).subscribe((res)=>console.log(res),(err)=>console.log(err))
+    const formdata=new FormData();
+    formdata.append('file',this.resume);
+    this.http.post('http://localhost:3000/api/file',formdata).subscribe((res)=>console.log(res),(err)=>console.log(err))
 
 
     this.userService.newUser(this.userSingnup);
     this.router.navigate(['']);
   }
-  
+
 }

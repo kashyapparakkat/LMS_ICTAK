@@ -14,9 +14,14 @@ const cors=require('cors');
     var assigncreate ={ 
     title:req.body.assignment.title,
     date:req.body.assignment.date,
-    description:req.body.assignment.description
+    description:req.body.assignment.description,
+    submissionText: ""
    
  }
+
+ console.log("assigncreate", req.body)
+
+
 
  var addassign = new assignment(assigncreate);
  addassign.save();
@@ -41,7 +46,7 @@ catch(er){
     console.log("error"+er)
 }
 })
-router.get('/:id',(req, res) => {
+router.get('/assign/:id',(req, res) => {
 
     res.header("Access-Control-Allow-Orgin","*");
     res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
@@ -72,6 +77,23 @@ router.put('/update',(req,res)=>{
        res.send();
    })
  })
+
+
+router.put('/updateSubmissionText',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin","*");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
+    console.log(req.body)
+    id=req.body._id,
+    submissionText = req.body.submissionText
+
+
+        assignment.findByIdAndUpdate({"_id":id},
+            {$set:{"submissionText":submissionText
+                }})
+            .then(function(){
+                res.send();
+            })
+})
  
     router.delete('/remove/:id',(req,res)=>{
     res.header("Access-Control-Allow-Orgin","*");

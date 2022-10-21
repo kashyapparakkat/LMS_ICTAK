@@ -9,6 +9,9 @@ var assigntMent = new mongoose.Schema({
     },
     description: {
         type: String
+    },
+    submissionText: {
+        type: String
     }
 })
 

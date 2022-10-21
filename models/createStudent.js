@@ -34,6 +34,9 @@ var studentDetails = new mongoose.Schema({
     isEnrolled: {
         type: Boolean,
     },
+    batch:{
+        type:String,
+    },
     gender: {
         type: String,
     },
@@ -46,12 +49,16 @@ var studentDetails = new mongoose.Schema({
 
 });
 
+const student = mongoose.model('student',studentDetails);
 
-//email validation
+module.exports = student;
+
+
+/*//email validation
 studentDetails.path('email').validate(async(email)=>{
     const emailcount=await mongoose.models.student.countDocuments({email})
     return !emailcount
-},'Email already exists')
+},'Email already exists')*/
 
 // //phone number validation
 // studentDetails.path('number').validate(async(number)=>{
@@ -59,8 +66,9 @@ studentDetails.path('email').validate(async(email)=>{
 //     return !numbercount
 // },'Phone Number  already exists')
 
-
+/*
 
 const student = mongoose.model('student',studentDetails);
 
 module.exports = student;
+>>>>>>> 0b0e55312ece14c9cf405a1926555867558e1bc5*/

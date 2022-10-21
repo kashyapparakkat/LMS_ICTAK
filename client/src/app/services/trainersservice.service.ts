@@ -12,21 +12,21 @@ export class TrainersserviceService {
 
   getAssignments()
   {
-    
+
     return this.http.get("http://localhost:3000/api/getassign")
 
- 
+
   }
-   
+
 
 
   assignCreate(assignment:any){
-   
+
 
     return this.http.post("http://localhost:3000/api/addassign",{assignment})
     .subscribe(data=>{console.log(data)})
-   
-     
+
+
   }
 
   deleteAssign(id:any){
@@ -35,7 +35,7 @@ export class TrainersserviceService {
   }
 
   getassignmentId(id:any){
-    return this.http.get("http://localhost:3000/api/"+id);
+    return this.http.get("http://localhost:3000/api/assign/"+id);
   }
 
   editAssign(assign:any)
@@ -44,8 +44,15 @@ export class TrainersserviceService {
       return this.http.put("http://localhost:3000/api/update",assign)
       .subscribe(data =>{console.log(data)})
     }
+
+  editStudentSubmissionText(assign:any)
+  {
+    console.log('client update')
+    return this.http.put("http://localhost:3000/api/updateSubmissionText",assign)
+      .subscribe(data =>{console.log(data)})
+  }
   }
 
- 
+
 
 
