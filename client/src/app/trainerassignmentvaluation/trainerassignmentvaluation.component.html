@@ -1,4 +1,6 @@
-<body>
+
+
+ <body>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -107,24 +109,52 @@
 
     </div>
 
-<div class="rich container-md h-custom" *ngIf = 'assign && assign.length'  >
-  <div class="card text-center" >
-    <div class="card-header"  >
-     <h3> Assignment Lists</h3>    
+    <div class="b-example-divider b-example-vr"></div>
+<div class="rich container-md h-custom" *ngIf ='assign && assign.length'  >
+    <div class="card text-center"  >
+      <div class="card-header"  >
+       <h3> Assignment Lists</h3>    
+        
+      <div  class="card-body"  *ngFor='let c of assign' style="border:1px solid lightblue;margin:50px">
+        <div class="buttons">
+        <button class="btn btn-light" type="submit" style="cursor:pointer" (click)="editAssign(c)"  style="margin-left:600px;color:darkorange">ADD GRADE</button>
+       </div>
+
+       <div class="row">
       
-    <div  class="card-body"  *ngFor='let c of assign' style="border:1px solid lightblue">
-      <div class="buttons">
-      <button class="btn btn-light" type="submit" style="cursor:pointer" (click)="editAssign(c)"  style="margin-left: 20px;"> Edit</button>
-      <button class="btn btn-dark" style="cursor:pointer" (click)="deleteAssign(c)">Delete</button>
-    </div>
-      <h5 class="card-title">{{ c.title }}</h5> 
-     <div [innerHTML]="c.description"> <p class="card-text" >{{c.description}}</p></div>
-       <label> Date:{{c.date}}</label><br>
-     
-    </div>
-    </div>
-    <div class="card-footer text-muted">
-    
+        <div class="col" style="margin-left:100px"><label> StudentNAme:</label></div>
+        <div class="col" style="margin-right:200px;color:brown;font-family: 'Times New Roman', Times, serif;"> {{c.studentname}}</div>
+        
+      </div>
+   
+      <div class="row">
+       
+        <div class="col" style="margin-left:100px"><label for=""> Assignment:</label></div>
+        <div class="col"  style="margin-right:200px"> <div [innerHTML]="c.description" style="color:red"> 
+          <p class="card-text" > {{c.description}}</p></div>
+        </div>
+        
+      </div>
+
+
+      <div class="row">
+       
+      
+        <div class="col" style="margin-left:100px"><label> Submission:</label></div>
+        <div class="col" style="margin-right:200px"> <div [innerHTML]="c.submissionText" style="color:green"> 
+          <p class="card-text" > {{c.submissionText}}</p></div>
+        
+        </div>
+        <div class="row">
+          
+          <div class="col" style="margin-left:100px"><label> Grade:</label></div>
+          <div class="col" style="margin-right:200px">  {{c.mark}}</div>
+         
+        </div>
+      </div>
+      </div>
+      <div class="card-footer text-muted">
+      
+      </div>
     </div>
   </div>
-</div>

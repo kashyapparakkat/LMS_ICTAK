@@ -34,6 +34,8 @@ import { AssigmentslistComponent } from './assigmentslist/assigmentslist.compone
 import { UpdateassignmenttrainerComponent } from './updateassignmenttrainer/updateassignmenttrainer.component';
 import {StudentAssignmentComponent} from "./student-assignment/student-assignment.component";
 import { StudentUpdateAssignmentComponent } from './student-update-assignment/student-update-assignment.component';
+import { TrainerassignmentvaluationComponent } from './trainerassignmentvaluation/trainerassignmentvaluation.component';
+import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupdate/trainerassignmentmarkupdate.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
     AdminapproveTrainerComponent,
     //AddcourseandbatchComponent,
     AddCourseComponent,
-    AddBatchComponent
+    AddBatchComponent,
+    TrainerassignmentvaluationComponent,
+    TrainerassignmentmarkupdateComponent
 ],
   imports: [
     BrowserModule,
