@@ -36,7 +36,7 @@ export class AdminapproveComponent implements OnInit {
   constructor(public router:Router,public StudentdetailsService:StudentdetailsService,public BatchandcourseService:BatchandcourseService) { }
  //constructor() { }
   ngOnInit(): void {
-  //  debugger;
+   // let id = localStorage.getItem("editstudentid");
    this.StudentdetailsService.getStudents().subscribe((data)=>{
      console.log('getdata',data)
       this.studentDetails=JSON.parse(JSON.stringify(data));
@@ -51,6 +51,9 @@ export class AdminapproveComponent implements OnInit {
 }
 approvestudent(data:any){
   console.log("approving.........",data);
+  //console.log("approving.........",data1);
+
+ // localStorage.setItem("", this.data._id.toString());
   this.StudentdetailsService.approvestudent(data);
   alert("Approved Succesfully");
   this.router.navigate(['/adminapprove']);
