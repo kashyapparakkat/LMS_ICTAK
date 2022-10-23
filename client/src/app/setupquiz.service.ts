@@ -23,6 +23,6 @@ export class SetupquizService {
   }
 
   submitAnswerForQuestion(data: any){
-    return this.http.put<any>(`${this.server_address}/submit-quiz`, data)
+    return this.http.put<any>(`${this.server_Address}/submit-quiz`, data)
   }
 }
