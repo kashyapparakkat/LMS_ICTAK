@@ -53,7 +53,15 @@ router.get("/get-student-details", async function (req, res) {
 
 router.get('/studentDetails',function(req,res){
     
-    student.find()
+    student.find({isEnrolled:false,user:'student'})
+                .then(function(student){
+                    res.send(student);
+                });
+});
+
+router.get('/tutorDetails',function(req,res){
+    
+    student.find({isEnrolled:false,user:'teacher'})
                 .then(function(student){
                     res.send(student);
                 });
@@ -308,21 +316,33 @@ router.put('/approvestudent',(req,res)=>{
     console.log("apiiii",req.body.batch);  
     id=req.body._id,
     batch=req.body.batch,
-    isEnrolled="True"  
+    isEnrolled=True  
  
- console.log("apiiii",id); 
+ //console.log("apiiii",id); 
  
 
  student.findByIdAndUpdate({
      "_id":id },
-     {$set:{"isEnrolled":"True"},
+     {$set:{"isEnrolled":isEnrolled},
      "batch":batch}
+     .then(function(){
+        res.send();
+    })
     
 )
-    
 });
 
  router.delete('/deletestudent/:id', async function(req,res){
+    // router.delete(id,async function(req,res)){
+        id = req.params.id;
+    console.log(id);
+    student.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});     
+router.delete('/deletetutor/:id', async function(req,res){
     // router.delete(id,async function(req,res)){
         id = req.params.id;
     console.log(id);

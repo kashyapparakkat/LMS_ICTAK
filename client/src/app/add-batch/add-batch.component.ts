@@ -45,7 +45,7 @@ export class AddBatchComponent implements OnInit {
       this.batches.description='';
       this.batches.coursename ='';
       this.batches.status='';
-      this.router.navigate(['./addbatch']);
+      this.router.navigate(['./adminhome']);
   /*  this.BatchandcourseService.newBatch(this.Batches);
     console.log("Called");    
     alert("Success");

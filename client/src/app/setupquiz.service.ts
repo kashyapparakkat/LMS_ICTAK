@@ -20,4 +20,8 @@ export class SetupquizService {
   deletequestion(id:any){
     return this.http.delete(`${this.server_address}/setup-quiz/${id}`)
   }
+
+  submitAnswerForQuestion(data: any){
+    return this.http.put<any>(`${this.server_address}/submit-quiz`, data)
+  }
 }

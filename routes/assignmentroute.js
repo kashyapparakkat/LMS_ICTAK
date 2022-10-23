@@ -94,6 +94,22 @@ router.put('/updateSubmissionText',(req,res)=>{
                 res.send();
             })
 })
+
+router.put('/updateAssignmentmark',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin","*");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
+    console.log(req.body)
+    id=req.body._id,
+    mark= req.body.mark
+
+
+        assignment.findByIdAndUpdate({"_id":id},
+            {$set:{"mark":mark
+                }})
+            .then(function(){
+                res.send();
+            })
+})
  
     router.delete('/remove/:id',(req,res)=>{
     res.header("Access-Control-Allow-Orgin","*");

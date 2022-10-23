@@ -1,3 +1,4 @@
+
 <body>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -92,7 +93,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
         <li>
-            <a href="#" class="nav-link text-white">
+            <a routerLink="trainer-home" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Events
             </a>
@@ -106,177 +107,47 @@
         </ul>
 
       </div>
+  <div class="rich container-fluid h-custom" style="margin-left:100px;">
 
-      <div class="b-example-divider b-example-vr"></div>
+    <div class="col-md-5 col-lg-6 col-xl-6">
+      <form #assignform="ngForm" (ngSubmit)="editAssign()">
+        <div class="form-outline mb-4" ><h3 style="color:deepskyblue;">Assignment Evaluation</h3></div>
 
-      <div class="d-flex flex-column flex-shrink-0 p-3 bg-light text-center"style="width:75%">
+        <!--<div class="form-outline mb-3">
+            <label> StudentNAme:{{assign.studentname}}</label><br>
+
+        </div>-->
+         <!-- <div class="form-outline mb-3">
+          <input type="text"  name="fname"  [(ngModel)]="assign.title" #fname="ngModel" required class="form-control form-control-lg"
+                 placeholder="Fullname" disabled />
 
 
+        </div>
+        -->
+      <label for="">Assignment:</label>  <div [innerHTML]="assign.description" style="color:red" class="form-outline mb-3" >
+          <input type="text"  name="description"  style="color:red"  [(ngModel)]="assign.description" #fname="ngModel" required class="form-control form-control-lg"
+                 placeholder="description" disabled />
 
-        <ul class="nav nav-pills flex-column mb-auto" id="Course_batch">
-            <li class="nav-item">
-              <a  class="nav-link active">
-                  <h5>COURSES AND BATCHES</h5>
-              </a>
-            </li>
-          </ul>
-          <div class="">
-            <h4 style="margin-top: 0;">LIVE COURSES</h4>
-            <div class="container" id="courses">
+        </div>
 
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                  <div class="card shadow-sm" style="background-color: green;height: 50px;">
-                    <a routerLink="/trainer-mean" style="text-decoration: none;color:black;"><h5 style="margin-top: 10px;" >MEAN STACK</h5></a>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: green;height: 50px;">
-                        <h5 style="margin-top: 10px;">Robotic Process Automation</h5>
-                      </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: green;height: 50px;">
-                        <h5 style="margin-top: 10px;">Software Testing</h5>
-                      </div>
-                  </div>
-                </div>
+        <div    class="form-outline mb-3">
+          <quill-editor name="submission text"  [(ngModel)]="assign.submissionText" #submissionText="ngModel" class="form-control form-control-lg"
+                          ></quill-editor>
+        </div>
 
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: green;height: 50px;">
-                        <h5 style="margin-top: 10px;">Cyber Security</h5>
-                      </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="">
-            <h4 style="margin-top: 0;">LIVE BATCHES</h4>
-            <div class="container">
-
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                  <div class="card shadow-sm" style="background-color: rgb(183, 134, 192);height: 50px;">
-                    <a routerLink="/mean-may22" style="text-decoration: none;color:black;"><h5 style="margin-top: 10px;" >May 2022 MEAN</h5></a>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: rgb(183, 134, 192);height: 50px;">
-                        <h5 style="margin-top: 10px;">Sep 2022 RPA</h5>
-                      </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: rgb(183, 134, 192);height: 50px;">
-                        <h5 style="margin-top: 10px;">Aug 2021 ST</h5>
-                      </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card shadow-sm" style="background-color: rgb(183, 134, 192);height: 50px;">
-                        <h5 style="margin-top: 10px;">Dec 2021 CS</h5>
-                      </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 20px;">
-            <li class="nav-item">
-              <a  class="nav-link active">
-                  <h5>EXAMS</h5>
-              </a>
-            </li>
-          </ul>
-
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm" style="background-color: rgb(183, 132, 90);height: 50px;" routerLink="setup-quiz">
-                <a routerLink="/setup-quiz" style="text-decoration: none;color:black;"><h5 style="margin-top: 10px;" >Setup Exam</h5></a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <div class="card shadow-sm" style="background-color: rgb(183, 132, 90);height: 50px;">
-                    <h5 style="margin-top: 10px;">Valuation</h5>
-                  </div>
-              </div>
-            </div>
-
-          </div>
-
-          <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 20px;" id="assignments">
-            <li class="nav-item">
-              <a  class="nav-link active">
-                  <h5>ASSIGNMENTS</h5>
-              </a>
-            </li>
-          </ul>
-
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm" style="background-color: rgb(57, 136, 145);height: 50px;">
-                <a  routerLink="/getassignments" class="nav-link active">
-                <h5 style="margin-top: 10px;">Set up Assignments</h5>
-                </a>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm" style="background-color: rgb(57, 136, 145);height: 50px;">
-                <a  routerLink="/addassignment" class="nav-link active">
-                  <h5 style="margin-top: 10px;">Add Assignments</h5>
-                </a>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm">
-                <div class="card shadow-sm" style="background-color: rgb(88, 139, 139);height: 50px;">
-                  <a  routerLink="/assigmentevaluation" class="nav-link active">
-                    <h5 style="margin-top: 10px;">Valuation</h5>
-                  </a>
-                  </div>
-              </div>
-            </div>
+        <div class="form-outline mb-3" >
+            Grade:
+            <input type="text"  name="mark"  [(ngModel)]="assign.mark" #mark="ngModel" required class="form-control form-control-lg"
+                   placeholder=""  />
 
           </div>
 
 
+        <button type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+      </form>
+    </div>
 
 
+  </div>
 
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
-
-
-
-    </main>
-
-
-
-      </body>

@@ -35,7 +35,7 @@ export class AddCourseComponent implements OnInit {
       this.Courses.coursename='';
       this.Courses.description='';
       this.Courses.status='';
-      this.router.navigate(['./addcourse']);
+      this.router.navigate(['./adminhome']);
       
  
   }

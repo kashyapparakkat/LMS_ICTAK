@@ -35,6 +35,8 @@ import { UpdateassignmenttrainerComponent } from './updateassignmenttrainer/upda
 import {StudentAssignmentComponent} from "./student-assignment/student-assignment.component";
 import { StudentUpdateAssignmentComponent } from './student-update-assignment/student-update-assignment.component';
 import { StudentQuizComponent } from './student-quiz/student-quiz.component';
+import { TrainerassignmentvaluationComponent } from './trainerassignmentvaluation/trainerassignmentvaluation.component';
+import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupdate/trainerassignmentmarkupdate.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { StudentQuizComponent } from './student-quiz/student-quiz.component';
     //AddcourseandbatchComponent,
     AddCourseComponent,
     AddBatchComponent,
-    StudentQuizComponent
+    StudentQuizComponent,
+    TrainerassignmentvaluationComponent,
+    TrainerassignmentmarkupdateComponent
 ],
   imports: [
     BrowserModule,

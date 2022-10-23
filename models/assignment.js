@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 var assigntMent = new mongoose.Schema({
+    studentname:{
+        type:String
+    },
     title: {
         type: String,
     },
@@ -11,6 +14,9 @@ var assigntMent = new mongoose.Schema({
         type: String
     },
     submissionText: {
+        type: String
+    },
+    mark: {
         type: String
     }
 })
