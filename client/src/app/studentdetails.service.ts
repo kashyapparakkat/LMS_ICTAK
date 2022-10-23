@@ -6,7 +6,7 @@ import {HttpClient ,HttpResponse} from '@angular/common/http'
 })
 export class StudentdetailsService {
 
-  server_address : string = 'http://localhost:3000/api'
+  //server_address : string = 'http://localhost:3000/api'
 
   //server_Address : string = 'http://localhost:3000/api'
   server_Address: String = "api"
