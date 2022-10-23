@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { tutordetailsService } from '../tutordetails.service';
+import { StudentdetailsService } from '../studentdetails.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { BatchandcourseService } from '../batchandcourse.service';
 
@@ -29,11 +29,11 @@ export class AdminapproveTrainerComponent implements OnInit {
     status  :''
     
   }]
-  constructor(public router:Router,public TutordetailsService:tutordetailsService,public BatchandcourseService:BatchandcourseService) { }
+  constructor(public router:Router,public StudentdetailsService:StudentdetailsService,public BatchandcourseService:BatchandcourseService) { }
  //constructor() { }
   ngOnInit(): void {
   //  debugger;
-   this.TutordetailsService.getTutor().subscribe((data)=>{
+   this.StudentdetailsService.gettutor().subscribe((data)=>{
      console.log('getdata',data)
       this.tutordetails=JSON.parse(JSON.stringify(data));
      //var datas= console.log('SDDSF',this.tutordetails)
@@ -44,18 +44,20 @@ export class AdminapproveTrainerComponent implements OnInit {
      this.batchdetails=JSON.parse(JSON.stringify(data));
 })
 }
-approvetrainer(data:any){
+/*approvetrainer(data:any){
   console.log("approving.........");
-  this.TutordetailsService.approveTutor(data);
+  this.StudentdetailsService.approvestudent(data);
   alert("Approved Succesfully");
   this.router.navigate(['/AdminapproveTrainer']);
-}
+}*/
 
 deletetrainer(data:any){
   console.log("deleting",data);
-  this.TutordetailsService.deletetutor(data._id).subscribe(data=>
-    {console.log(data)});
-    alert("Deleted Trainer"+ data.name +"Succesfully");
+  this.StudentdetailsService.deletestudent(data._id).subscribe(data=>
+    {console.log(data)
+      this.ngOnInit()
+    });
+    alert("Deleted Trainer "+ data.name +" Succesfully");
     this.router.navigate(['/AdminapproveTrainer']);
   
 }

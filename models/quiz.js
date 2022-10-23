@@ -8,7 +8,8 @@ const quizschema = new Schema({
     Opt2:String,
     Opt3:String,
     Opt4:String,
-    Answer:String
+    Answer:String,
+    StudentAnswer: String
 })
 
 const quiz = mongoose.model('quiz',quizschema);

@@ -130,6 +130,23 @@ app.get('/api/setup-quiz',(req,res)=>{
 })
 
 
+app.put('/api/submit-quiz',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin","*");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE')
+    console.log("Request body=== ",req.body)
+    id=req.body.id,
+        StudentAnswer = req.body.StudentAnswer
+
+
+    quiz.findByIdAndUpdate({"_id":id},
+        {$set:{"StudentAnswer":StudentAnswer
+            }})
+        .then(function(){
+            res.send();
+        })
+})
+
+
 app.get('/api/batchmaterial',(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");

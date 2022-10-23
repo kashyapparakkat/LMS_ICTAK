@@ -6,6 +6,8 @@ import {HttpClient ,HttpResponse} from '@angular/common/http'
 })
 export class StudentdetailsService {
 
+  server_address : string = 'http://localhost:3000/api'
+
   //server_Address : string = 'http://localhost:3000/api'
   server_Address: String = "api"
 
@@ -15,17 +17,19 @@ export class StudentdetailsService {
   getStudents(){
     return this.http.get(`${this.server_Address}/studentdetails`);
   }
-  approvestudent(data:any){
-    console.log("service",data);
-    return this.http.put(`${this.server_Address}/approvestudent/`,data);
-   // return this.http.put("http://localhost:3000/api/studentdetails"+id);
+  approvestudent(data:any) {
+    console.log("service", data);
+    return this.http.put(`${this.server_Address}/approvestudent/`, data);
+  }
+
+  gettutor() {
+    return this.http.get(`${this.server_Address}/api/tutorDetails`);
   }
 
   deletestudent(id:any)
   {
     //console.log("deleting current student...",id);
     return this.http.delete(`${this.server_Address}/deletestudent/`+id);
-
   }
 
 }

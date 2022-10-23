@@ -49,10 +49,12 @@
           <button class="btn btn-light" type="submit" style="cursor:pointer" (click)="editAssign(c)"  style="margin-left: 20px;"> Edit</button>
           <!--<button class="btn btn-dark" style="cursor:pointer" (click)="deleteAssign(c)">Delete</button>-->
         </div>
-        <a href="" class="card-title">{{ c.title }}</a>
-        <div [innerHTML]="c.description"> <p class="card-text" >{{c.description}}</p></div>
+        <label> Title :{{c.title}}</label><br>
+        <label> Description :{{c.description}}</label><br>
+       <!-- <a href="" class="card-title">{{ c.title }}</a>-->
+        <!--<div [innerHTML]="c.description"> <p class="card-text" >{{c.description}}</p></div>-->
         <label> Date:{{c.date}}</label><br>
-
+        <label *ngIf="c.mark"> Grade :{{c.mark}}</label><br>
       </div>
     </div>
     <div class="card-footer text-muted">

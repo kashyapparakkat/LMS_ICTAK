@@ -1,0 +1,264 @@
+
+
+<div class="text-center"><h3>QUIZ</h3></div>
+
+<form #loginform="ngForm" (ngSubmit)="submitQuiz()">
+
+
+<!-- to show material -->
+
+<div class="card" style="width: 90%;margin:auto;margin-top: 5px;" *ngFor="let quiz of quizzes">
+  <div class="card-header">{{quiz.Question}}<span style="float: right;">
+    </span></div>
+  <div class="card-body">
+    <!--<div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+      <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+      <label class="btn btn-outline-dark" for="btnradio1">{{i.Opt1}}</label>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt2}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt3}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt4}}</span>
+    </div>-->
+
+    <input type="radio" id="html1" name="{{quiz._id}}" value="{{quiz.Opt1}}"  (change)="onSelect($event, quiz._id);">
+    &nbsp;
+    <label for="html1">{{quiz.Opt1}}</label><br>
+    <input type="radio" id="html2" name="{{quiz._id}}" value="{{quiz.Opt2}}"   (change)="onSelect($event, quiz._id);" >
+    &nbsp;
+    <label for="html2">{{quiz.Opt2}}</label><br>
+    <input type="radio" id="html3" name="{{quiz._id}}" value="{{quiz.Opt3}}"  (change)="onSelect($event, quiz._id);">
+    &nbsp;
+    <label for="html3">{{quiz.Opt3}}</label><br>
+    <input type="radio" id="html4" name="{{quiz._id}}" value="{{quiz.Opt4}}"  (change)="onSelect($event, quiz._id);">
+    &nbsp;
+    <label for="html4">{{quiz.Opt4}}</label><br>
+    <!--<ul>
+      <li>
+      </li>
+      <li><h6>{{i.Opt2}}</h6></li>
+      <li><h6>{{i.Opt3}}</h6></li>
+      <li><h6>{{i.Opt4}}</h6></li>
+    </ul>-->
+    <!--<div><h6>{{i.Answer}}</h6></div>-->
+  </div>
+</div>
+  <br>
+<div class="text-center">
+  <button type="submit" value="submit" class="btn btn-primary btn-lg"
+          style="padding-left: 2.5rem; padding-right: 2.5rem;">submit</button>
+</div>
+</form>
+
+
+<!--<div class="card" style="width: 90%;margin:auto;margin-top: 5px;">
+  <div class="card-header">Qs1<span style="float: right;">
+    </span></div>
+  <div class="card-body">
+    &lt;!&ndash;<div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+      <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+      <label class="btn btn-outline-dark" for="btnradio1">{{i.Opt1}}</label>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt2}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt3}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt4}}</span>
+    </div>&ndash;&gt;
+
+    <input type="radio" id="html1" name="StudentAnswer" value="radio1">
+    <label for="html1">radio1</label><br>
+    <input type="radio" id="html2" name="StudentAnswer" value="radio2" >
+    <label for="html2">radio2</label><br>
+    <input type="radio" id="html3" name="StudentAnswer" value="radio3">
+    <label for="html3">radio3</label><br>
+    <input type="radio" id="html4" name="StudentAnswer" value="radio4">
+    <label for="html4">radio4</label><br>
+
+
+
+    &lt;!&ndash;<ul>
+      <li>
+      </li>
+      <li><h6>{{i.Opt2}}</h6></li>
+      <li><h6>{{i.Opt3}}</h6></li>
+      <li><h6>{{i.Opt4}}</h6></li>
+    </ul>&ndash;&gt;
+    &lt;!&ndash;<div><h6>{{i.Answer}}</h6></div>&ndash;&gt;
+  </div>
+</div>
+
+
+<div class="card" style="width: 90%;margin:auto;margin-top: 5px;">
+  <div class="card-header">Qs1<span style="float: right;">
+    </span></div>
+  <div class="card-body">
+    &lt;!&ndash;<div class="btn-group col-xl-4 "  aria-label="Basic radio toggle button group">
+      <input type="radio"   style="margin:left=100px" class="btn-check" value="male"  name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio1" autocomplete="off" >
+      <label class="btn btn-outline-dark" for="btnradio1">{{i.Opt1}}</label>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt2}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt3}}</span>
+
+      <input type="radio" class="btn-check" value="female" name="gender" #gen="ngModel"  [(ngModel)]="userSingnup.gender" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-dark" for="btnradio2">F</label>
+      <span *ngIf="gen.touched && gen.invalid" style="color:red">{{i.Opt4}}</span>
+    </div>&ndash;&gt;
+    <input type="radio" id="html1.1" name="StudentAnswer1" value="radio1">
+    <label for="html1">radio1</label><br>
+    <input type="radio" id="html2.1" name="StudentAnswer1" value="radio2" >
+    <label for="html2">radio2</label><br>
+    <input type="radio" id="html3.1" name="StudentAnswer1" value="radio3">
+    <label for="html3">radio3</label><br>
+    <input type="radio" id="html4.1" name="StudentAnswer1" value="radio4">
+    <label for="html4">radio4</label><br>
+
+
+
+    &lt;!&ndash;<ul>
+      <li>
+      </li>
+      <li><h6>{{i.Opt2}}</h6></li>
+      <li><h6>{{i.Opt3}}</h6></li>
+      <li><h6>{{i.Opt4}}</h6></li>
+    </ul>&ndash;&gt;
+    &lt;!&ndash;<div><h6>{{i.Answer}}</h6></div>&ndash;&gt;
+  </div>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+
+<!-- To ADD materials -->
+
+
+<!-- Button trigger modal -->
+<!--<div>
+    <span>
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 10px;margin: auto;margin-left: 70px;">
+   Add Question
+</button>
+</span>
+  <span>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 10px;margin: auto;margin-left: 70px;">
+       Clear Quiz
+    </button>
+    </span>
+</div>
+
+&lt;!&ndash; Modal &ndash;&gt;
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Question</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" #addquestion ="ngForm"  class="col-md-6" style="margin-top: 10px;width: 100%;" (ngSubmit)="addquiz_func()">
+          <div class="form-group">
+            <label for="">Question:</label>
+            <input type="text" class="form-control" name="question" [(ngModel)]="quizzes.question" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 1:</label>
+            <input type="text" class="form-control" name="opt1" [(ngModel)]="quizzes.opt1" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 2:</label>
+            <input type="text" class="form-control" name="opt2" [(ngModel)]="quizzes.opt2" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 3:</label>
+            <input type="text" class="form-control" name="opt3" [(ngModel)]="quizzes.opt3" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 4:</label>
+            <input type="text" class="form-control" name="opt4" [(ngModel)]="quizzes.opt4" required>
+          </div>
+          <div class="form-group">
+            <label for="">Answer:</label>
+            <input type="" class="form-control" name="answer" [(ngModel)]="quizzes.answer" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom:10px;margin-top:10px;">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 10px;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+&lt;!&ndash; Modal &ndash;&gt;
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Question</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" #updatequestion ="ngForm"  class="col-md-6" style="margin-top: 10px;width: 100%;">
+          <div class="form-group">
+            <label for="">Question:</label>
+            <input type="text" class="form-control" name="question" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 1:</label>
+            <input type="text" class="form-control" name="opt1"  required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 2:</label>
+            <input type="" class="form-control" name="opt2" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 3:</label>
+            <input type="" class="form-control" name="opt3" required>
+          </div>
+          <div class="form-group">
+            <label for="">Option 4:</label>
+            <input type="" class="form-control" name="opt4" required>
+          </div>
+          <div class="form-group">
+            <label for="">Answer:</label>
+            <input type="" class="form-control" name="answer" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom:10px;margin-top:10px;">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 10px;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>-->

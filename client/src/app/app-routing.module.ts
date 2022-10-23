@@ -27,6 +27,9 @@ import {StudentAssignmentComponent} from "./student-assignment/student-assignmen
 import {StudentUpdateAssignmentComponent} from "./student-update-assignment/student-update-assignment.component";
 import {AddBatchComponent} from "./add-batch/add-batch.component";
 import {AddCourseComponent} from "./add-course/add-course.component";
+import {StudentQuizComponent} from "./student-quiz/student-quiz.component";
+import { TrainerassignmentvaluationComponent } from './trainerassignmentvaluation/trainerassignmentvaluation.component';
+import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupdate/trainerassignmentmarkupdate.component';
 
 /*const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -57,7 +60,11 @@ const routes: Routes = [{path:'',component:HomeComponent},{path:'login',componen
   {path: 'adminapprovetrainer', component:AdminapproveTrainerComponent},
   //{path: 'addcourseandbatch', component:AddcourseandbatchComponent},
   {path: 'addcourse', component:AddCourseComponent},
-  {path: 'addbatch', component:AddBatchComponent},];
+  {path: 'addbatch', component:AddBatchComponent},
+  {path:'student-quiz',component:StudentQuizComponent},
+{path:'assigmentevaluation',component:TrainerassignmentvaluationComponent},
+{path:'trainermarkupdate',component:TrainerassignmentmarkupdateComponent}
+];
 
 
 @NgModule({
