@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/lms_ictak");
+//mongoose.connect("mongodb://localhost:27017/lms_ictak");
 
 var addcourses = new mongoose.Schema({
     id: {

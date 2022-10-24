@@ -9,11 +9,14 @@ import { Usermodel } from '../facultyregistration/users.model';
 export class UserserviceService {
 error:any
 
+  server_Address: String = "api"
+  //server_Address: String = "http://localhost:3000/api"
+
   constructor(private http:HttpClient,private router:Router) { }
 
   newUser(user: any){
     console.log("service"+user);
-    return this.http.post("http://localhost:3000/api/add-student",{user})
+    return this.http.post(`${this.server_Address}/add-student`,{user})
    // .subscribe(data=>{console.log(data)})
    .subscribe((res) => {
     alert("Successfully Registered.please wait for approvel ");
@@ -31,7 +34,7 @@ error:any
 
   loginuser(user:any){
 
-    return this.http.post("http://localhost:3000/api/login",{user})
+    return this.http.post(`${this.server_Address}/login`,{user})
    /* .subscribe((res)=>{
       alert("Sucessful Login");
      // if(user.role=="faculty"){

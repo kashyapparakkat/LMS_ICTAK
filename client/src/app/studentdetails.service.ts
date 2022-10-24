@@ -5,41 +5,41 @@ import {HttpClient ,HttpResponse} from '@angular/common/http'
   providedIn: 'root'
 })
 export class StudentdetailsService {
-  
-  server_address : string = 'http://localhost:3000/api'
+
+  //server_address : string = 'http://localhost:3000/api'
+
+  //server_Address : string = 'http://localhost:3000/api'
+  server_Address: String = "api"
 
   constructor(private http:HttpClient) { }
 
- 
-  getStudents()
-  {
-    return this.http.get("http://localhost:3000/api/studentdetails");
+
+  getStudents(){
+    return this.http.get(`${this.server_Address}/studentdetails`);
   }
-  gettutor()
-  {
-    return this.http.get("http://localhost:3000/api/tutorDetails");
+  approvestudent(data:any) {
+    console.log("service", data);
+    return this.http.put(`${this.server_Address}/approvestudent/`, data);
   }
-  approvestudent(data:any)
-  {
-    console.log("service",data)
-    return this.http.put("http://localhost:3000/api/approvestudent/",data);
-   
+
+  gettutor() {
+    return this.http.get(`${this.server_Address}/tutorDetails`);
   }
 
   deletestudent(id:any)
   {
     //console.log("deleting current student...",id);
-    return this.http.delete("http://localhost:3000/api/deletestudent/"+id);
+    return this.http.delete(`${this.server_Address}/deletestudent/`+id);
   }
   addbatchstudent(data:any,selectedValue:any)
   {
     console.log("Mufeeda",selectedValue)
-    return this.http.put(`http://localhost:3000/api/addbatach`,selectedValue);
+    return this.http.put(`${this.server_Address}/addbatach`,selectedValue);
   }
   getStudentsbtch(data:any)
   {
     console.log("@service",data)
-    return this.http.get(`http://localhost:3000/api/Studentsbtch/${data}`);
+    return this.http.get(`${this.server_Address}/Studentsbtch/${data}`);
   }
 
 }

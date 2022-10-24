@@ -13,7 +13,8 @@ export class StudentAssignmentComponent implements OnInit {
     {
       title :'',
       date:'',
-      description:''
+      description:'',
+      mark:''
     }
   ]
 
