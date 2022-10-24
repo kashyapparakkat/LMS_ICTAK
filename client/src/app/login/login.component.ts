@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
   loginResponse= {
     success: true,
     message: '',
-    user: ''
+    user: '',
+    isEnrolled: true
   }
 
 
@@ -42,13 +43,30 @@ export class LoginComponent implements OnInit {
       //console.log(this.loginResponse)
       console.log("this.loginResponse.user",this.loginResponse.user);
       console.log("this.loginResponse.success", this.loginResponse.success)
-      if(this.loginResponse.user=="student"){
+/*
+      console.log("this.loginResponse.status", this.loginResponse.status)
+*/
+      /*if(this.loginResponse.success==true){
+        console.log("Inside student home navigation")
+        alert(this.loginResponse.message)
+        //this.router.navigate(['/student-home']);
+      }*/
+      if(this.loginResponse.isEnrolled == false){
+        console.log("Inside isEnrolled false")
+        alert(this.loginResponse.message)
+        //this.router.navigate(['']);
+        window.location.reload()
+      }
+      if(this.loginResponse.isEnrolled && this.loginResponse.user=="student"){
         console.log("Inside student home navigation")
         this.router.navigate(['/student-home']);
       }
-      else if(this.loginResponse.user=="teacher"){
+      else if(this.loginResponse.isEnrolled && this.loginResponse.user=="teacher"){
         console.log("Inside trainer home navigation")
         this.router.navigate(['/trainer-home'])
+      } else if(this.loginResponse.user=="admin"){
+        console.log("Inside admin home navigation")
+        this.router.navigate(['/adminhome'])
       }
     },
       (err) => {

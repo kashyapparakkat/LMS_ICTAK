@@ -249,8 +249,14 @@ else{
      console.log("result[0].password==", result[0].password)
         bcrypt.compare(req.body.user.password,result[0].password,(err,ret)=>{
             if(ret){
-                    console.log("inside bycrypt student or trainer if")
-                    return res.status(200).json({success: true, message: "Sucessful login", user: result[0].user})
+                console.log("inside bycrypt student or trainer if--", result[0])
+                if(result[0].isEnrolled == true) {
+                    console.log("inside bycrypt student or trainer  with enrolled")
+                    return res.status(200).json({success: true, message: "Sucessful login", user: result[0].user, isEnrolled: result[0].isEnrolled})
+                } else {
+                    console.log("inside bycrypt student or trainer  without enrolled")
+                    return res.status(200).json({success: true, message: "Please wait for approval from admin", user: result[0].user, isEnrolled: result[0].isEnrolled})
+                }
 
             }
            else{
