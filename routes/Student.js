@@ -319,37 +319,53 @@ router.get("/validate-student-details", async function (req, res) {
     }
 });
 
-router.put('/approvestudent',(req,res)=>{
-    console.log("apiiii",req.body.batch);  
-    id=req.body._id,
-    batch=req.body.batch,
-    isEnrolled=True  
+router.put("/approvestudent", (req,res)=>{
+    console.log("apiiii....",req.body.id);  
+    id=req.body.id
+    batch=req.body.selectedValue
  
- //console.log("apiiii",id); 
- 
-
- student.findByIdAndUpdate({
-     "_id":id },
-     {$set:{"isEnrolled":isEnrolled},
-     "batch":batch}
-     .then(function(){
-        res.send();
-    })
-    
-)
+student.findByIdAndUpdate({
+    "_id":id },
+    {$set:{"isEnrolled":true,"batch":batch}})
+            .then((data) => {
+                if (data) {
+                    res.status(200);
+                    res.json(data);
+                } else {
+                    res.status(404);
+                    res.json({
+                        message: ["Canot Approve User"],
+                    });
+                }
+            })
+   
 });
 
- router.delete('/deletestudent/:id', async function(req,res){
-    // router.delete(id,async function(req,res)){
-        id = req.params.id;
-    console.log(id);
-    student.findByIdAndDelete({"_id":id})
-    .then(()=>{
-        console.log('success')
-        res.send();
-    })
-});     
-router.delete('/deletetutor/:id', async function(req,res){
+
+router.put("/addbatach", (req,res)=>{
+    console.log("apiiii",req.body);  
+    _id=req.body._id
+    batch=req.body.selectedValue
+    console.log("server",req.body.selectedValue)
+student.findByIdAndUpdate({
+    "_id":_id },
+    {$set:{"isEnrolled":true}})
+            .then((data) => {
+                if (data) {
+                    res.status(200);
+                    res.json(data);
+                } else {
+                    res.status(404);
+                    res.json({
+                        message: ["Canot Approve User"],
+                    });
+                }
+            })
+   
+});
+
+
+router.delete('/deletestudent/:id', async function(req,res){
     // router.delete(id,async function(req,res)){
         id = req.params.id;
     console.log(id);
@@ -360,4 +376,16 @@ router.delete('/deletetutor/:id', async function(req,res){
     })
 });     
 
+
+router.get('/Studentsbtch/:selectedValue',function(req,res){
+    batchfil=req.params.selectedValue;
+    console.log("output",batchfil)
+    student.find({batch:batchfil})
+                .then(function(student){
+                    res.send(student);
+                });
+});
+
+
 module.exports = router;
+

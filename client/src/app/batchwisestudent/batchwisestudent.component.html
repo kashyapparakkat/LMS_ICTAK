@@ -1,0 +1,49 @@
+<div class='card'>
+  <div class='card-header'>
+   <h4 style="margin-left: 70px;">Batch Details</h4>
+  </div>
+ <div>
+<div class="col-sm-10" style="margin-left: 70px;">
+  <select name="Batches"   (change)="changeBatch($event)" class="form-control" style="width:250px;">
+    <option>--Select Batch--</option>
+    <option [value]="batch.batchname" *ngFor="let batch of batchdetails">
+      {{batch.batchname}}
+    </option>     
+
+  </select>
+  <button class="btn btn-warning" style="cursor:pointer;margin-left: 270px;margin-top: -65px;" (click)="viewbatchdetails()"> Fetch</button>
+</div>
+</div> 
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table' style="margin-left: 70px;">
+      <thead>
+        <tr>
+        <!--   <th>RegId</th> -->
+        <th>Role</th>  
+        <th>Name</th>
+          <th>Email</th>
+          <th>Number</th>
+          <th>Qualification</th>
+          <th>Specialisation</th>
+          
+        </tr>
+       
+      </thead>
+
+      <tbody>  
+        <tr *ngFor='let studentDetails of studentDetails'>
+        <!--   <td>{{ studentDetails.id }}</td>--> 
+            <td>{{ studentDetails.user }}</td>
+            <td>{{ studentDetails.name }}</td>
+            <td>{{ studentDetails.email }}</td>
+            <td>{{ studentDetails.number }}</td>
+            <td>{{ studentDetails.qualification }}</td>
+            <td>{{ studentDetails.specialisation }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--selectedValue:{{selectedValue}}-->

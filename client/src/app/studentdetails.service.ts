@@ -23,13 +23,23 @@ export class StudentdetailsService {
   }
 
   gettutor() {
-    return this.http.get(`${this.server_Address}/api/tutorDetails`);
+    return this.http.get(`${this.server_Address}/tutorDetails`);
   }
 
   deletestudent(id:any)
   {
     //console.log("deleting current student...",id);
     return this.http.delete(`${this.server_Address}/deletestudent/`+id);
+  }
+  addbatchstudent(data:any,selectedValue:any)
+  {
+    console.log("Mufeeda",selectedValue)
+    return this.http.put(`${this.server_Address}/addbatach`,selectedValue);
+  }
+  getStudentsbtch(data:any)
+  {
+    console.log("@service",data)
+    return this.http.get(`${this.server_Address}/Studentsbtch/${data}`);
   }
 
 }

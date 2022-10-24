@@ -1,0 +1,87 @@
+<!--<div class='card'>
+    <div class='card-header'>
+     <h4 style="margin-left: 500px;">Course Details</h4>
+    </div>
+    
+    <div class='card-body'>            
+      <div class='table-responsive'>
+        <table class='table' style="margin-left: 500px;border: 1cm;width: 400px;box-sizing: border-box;">
+          <thead>
+            <tr>
+           
+              <th>Course</th>
+              <th>Description</th>
+              
+            </tr>
+           
+          </thead>
+
+          <tbody>  
+            <tr *ngFor='let coursedetails of coursedetails'>
+            <td>{{ coursedetails.coursename }}</td>
+            <td>{{ coursedetails.description }}</td>
+            
+                
+            </tr>     
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    <div class='card'>
+        <div class='card-header'>
+         <h4 style="margin-left: 500px;">Batch Details</h4>
+        </div>
+    <div class='card-body'>            
+        <div class='table-responsive'>
+          <table class='table' style="margin-left: 500px;border: 1cm;width: 600px;box-sizing: border-box;">
+            <thead>
+              <tr>
+              <!--   <th>RegId</th> -->
+                <th>Course</th>
+                <th>Batch</th>
+                <th>Description</th>
+                
+              </tr>
+             
+            </thead>
+  
+            <tbody>  
+              <tr *ngFor='let batchdetails of batchdetails'>
+            
+                <td>{{ batchdetails.coursename }}</td>
+                <td>{{ batchdetails.batchname }}</td>
+                <td>{{ batchdetails.description }}</td>
+                  <!--   <td><img *ngIf='showImage'
+                  [src] = 'product.imageUrl' 
+                  [title] = 'product.productName'
+                  [style.width.px] = 'imageWidth' 
+                  [style.margin.px] = 'imageMargin'></td>-->
+               
+              </tr>     
+            </tbody>
+          </table>
+        </div>
+      <!--  <div class='table-responsive'>
+          <table class='table' style="margin-left: 500px;border: 1cm;width: 400px;box-sizing: border-box;">
+            <thead>
+              <tr>
+             
+                <th>Course</th>
+                <th>Description</th>
+                
+              </tr>
+             
+            </thead>
+  
+            <tbody>  
+              <tr *ngFor='let coursedetails of coursedetails'>
+              <td>{{ coursedetails.description }}</td>
+              
+                  
+              </tr>     
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>-->
+  

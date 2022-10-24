@@ -37,6 +37,8 @@ import { StudentUpdateAssignmentComponent } from './student-update-assignment/st
 import { StudentQuizComponent } from './student-quiz/student-quiz.component';
 import { TrainerassignmentvaluationComponent } from './trainerassignmentvaluation/trainerassignmentvaluation.component';
 import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupdate/trainerassignmentmarkupdate.component';
+import { ViewbatchandcourseComponent } from './viewbatchandcourse/viewbatchandcourse.component';
+import {BatchwisestudentComponent} from './batchwisestudent/batchwisestudent.component'
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupd
     AddBatchComponent,
     StudentQuizComponent,
     TrainerassignmentvaluationComponent,
-    TrainerassignmentmarkupdateComponent
+    TrainerassignmentmarkupdateComponent,
+    ViewbatchandcourseComponent,
+    BatchwisestudentComponent
 ],
   imports: [
     BrowserModule,
