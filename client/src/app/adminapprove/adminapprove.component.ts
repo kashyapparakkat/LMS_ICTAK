@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentdetailsService } from '../studentdetails.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { BatchandcourseService } from '../batchandcourse.service';
+import { AddBatchComponent } from '../add-batch/add-batch.component';
 
 @Component({
   selector: 'app-adminapprove',
@@ -12,6 +13,7 @@ export class AdminapproveComponent implements OnInit {
 
   pageTitle="Student Details";
   studentDetails=[{
+    _id:'',
     id :'',
     name:'',
     email:'',
@@ -33,6 +35,16 @@ export class AdminapproveComponent implements OnInit {
     status  :''
 
   }]
+
+  apprstdnt={id:'',
+  selectedValue:''
+}
+
+  selectedValue :any;
+  changeBatch(e:any){
+    //console.log(e.target.value)
+    this.selectedValue=e.target.value;
+  }  
   constructor(public router:Router,public StudentdetailsService:StudentdetailsService,public BatchandcourseService:BatchandcourseService) { }
  //constructor() { }
   ngOnInit(): void {
@@ -44,19 +56,30 @@ export class AdminapproveComponent implements OnInit {
   })
 
   this.BatchandcourseService.batchdetails().subscribe((data)=>{
-    //console.log('getdata',data)
      this.batchdetails=JSON.parse(JSON.stringify(data));
-   // var datas= console.log('SDDSF',this.coursedetails)
 })
 }
-approvestudent(data:any){
-  console.log("approving.........",data);
-  //console.log("approving.........",data1);
+approvestudent(id:string){
+  this.apprstdnt.id=id;
+  this.apprstdnt.selectedValue=this.selectedValue;
+//  this.addbatch(id,);
+  this.StudentdetailsService.approvestudent(this.apprstdnt).subscribe(data=>
+    {
+      console.log(data)
+      this.ngOnInit()
+    });
+    alert("Approved Succesfully");
+}
 
- // localStorage.setItem("", this.data._id.toString());
-  this.StudentdetailsService.approvestudent(data);
-  alert("Approved Succesfully");
-  this.router.navigate(['/adminapprove']);
+addbatch(data:any){
+  //data=data+this.selectedValue;
+  console.log("trying to print concatemation",data)
+  this.StudentdetailsService.addbatchstudent(data,this.selectedValue).subscribe(data=>
+    {
+      console.log(data)
+      this.ngOnInit()
+    });
+ // console.log(this.selectedValue);
 }
 
 deletestudnt(data:any){

@@ -29,7 +29,8 @@ import {AddBatchComponent} from "./add-batch/add-batch.component";
 import {AddCourseComponent} from "./add-course/add-course.component";
 import { TrainerassignmentvaluationComponent } from './trainerassignmentvaluation/trainerassignmentvaluation.component';
 import { TrainerassignmentmarkupdateComponent } from './trainerassignmentmarkupdate/trainerassignmentmarkupdate.component';
-
+import {ViewbatchandcourseComponent} from './viewbatchandcourse/viewbatchandcourse.component'
+import {BatchwisestudentComponent} from './batchwisestudent/batchwisestudent.component'
 /*const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -61,7 +62,9 @@ const routes: Routes = [{path:'',component:HomeComponent},{path:'login',componen
   {path: 'addcourse', component:AddCourseComponent},
   {path: 'addbatch', component:AddBatchComponent},
 {path:'assigmentevaluation',component:TrainerassignmentvaluationComponent},
-{path:'trainermarkupdate',component:TrainerassignmentmarkupdateComponent}
+{path:'trainermarkupdate',component:TrainerassignmentmarkupdateComponent},
+{path:'viewcourseandbatch',component:ViewbatchandcourseComponent},
+{path:'batchwisestudent',component:BatchwisestudentComponent}
 ];
 
 

@@ -1,21 +1,22 @@
 <div class='card'>
     <div class='card-header'>
-     <h4>{{pageTitle}}</h4>
+     <h4 style="margin-left: 70px;">{{pageTitle}}</h4>
     </div>
     
     <div class='card-body'>            
       <div class='table-responsive'>
-        <table class='table'>
+        <table class='table' style="margin-left: 70px;">
           <thead>
             <tr>
              <!-- <th>RegId</th> -->
               <th>Name</th>
               <th>Email</th>
-              <th>DOB</th>
-              <th>Subject</th>
+              <th>Gender</th>
+              <th>Number</th>
+              <th>qualification</th>
+              <th>specialisation</th>
               <th>Add Batch</th>
               <th>Status</th>
-              
             </tr>
            
           </thead>
@@ -26,19 +27,22 @@
              <!--<td>{{ tutordetails.id }}</td>--> 
               <td>{{ tutordetails.name }}</td>
               <td>{{ tutordetails.email }}</td>
-              <td>{{ tutordetails.dob }}</td>
-              <td>{{ tutordetails.subject }}</td>
+              <td>{{ tutordetails.gender }}</td>
+              <td>{{ tutordetails.number }}</td>
+              <td>{{ tutordetails.qualification }}</td>
+              <td>{{ tutordetails.specialisation }}</td>
+              <!-- <td>{{ tutordetails.qualification }}</td>-->
               <td><div>
-                <select name="Batches">  
+                <select name="Batches" (change)="changeBatch($event)">  
                     <option value="0">---Batches---</option>  
                     <option *ngFor="let batchdetails of batchdetails"  
-                            value={{batchdetails.id}}>  
+                    [value]=batchdetails.batchname>  
                         {{batchdetails.batchname}}  
                     </option>  
                 </select>  
                 </div></td>
               <td>
-                <button class="btn btn-warning" style="cursor:pointer" > Approve</button>
+                <button class="btn btn-warning" style="cursor:pointer" (click)="approvetrainer(tutordetails._id)"> Approve</button>
                 <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 20px;" (click)="deletetrainer(tutordetails)">Delete</button>
               </td>
              

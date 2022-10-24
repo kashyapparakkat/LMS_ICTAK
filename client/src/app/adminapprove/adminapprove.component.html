@@ -11,6 +11,7 @@
             <!--   <th>RegId</th> -->
               <th>Name</th>
               <th>Email</th>
+              <th>Gender</th>
               <th>Number</th>
               <th>Qualification</th>
               <th>Specialisation</th>
@@ -25,14 +26,15 @@
           <!--   <td>{{ studentDetails.id }}</td>--> 
               <td>{{ studentDetails.name }}</td>
               <td>{{ studentDetails.email }}</td>
+              <td>{{ studentDetails.gender }}</td>
               <td>{{ studentDetails.number }}</td>
               <td>{{ studentDetails.qualification }}</td>
               <td>{{ studentDetails.specialisation }}</td>
               <td><div>
-                <select name="Batches">  
+                <select name="Batches" (change)="changeBatch($event)">  
                     <option value="0">---Batches---</option>  
                     <option *ngFor="let batchdetails of batchdetails"  
-                            value={{batchdetails.batchname}}>  
+                            [value]=batchdetails.batchname>  
                         {{batchdetails.batchname}}  
                     </option>  
                 </select>  
@@ -43,7 +45,7 @@
                 [style.width.px] = 'imageWidth' 
                 [style.margin.px] = 'imageMargin'></td>-->
               <td>
-                <button class="btn btn-warning" style="cursor:pointer"   (click)="approvestudent(studentDetails)"> Approve</button>
+                <button class="btn btn-warning" style="cursor:pointer"   (click)="approvestudent(studentDetails._id)"> Approve</button>
                 <button class="btn btn-danger" style="cursor:pointer"style="margin-left: 20px;" (click)="deletestudnt(studentDetails)"> Delete</button>
               </td>
             </tr>     

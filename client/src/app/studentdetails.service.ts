@@ -21,6 +21,7 @@ export class StudentdetailsService {
   }
   approvestudent(data:any)
   {
+    console.log("service",data)
     return this.http.put("http://localhost:3000/api/approvestudent/",data);
    
   }
@@ -29,6 +30,16 @@ export class StudentdetailsService {
   {
     //console.log("deleting current student...",id);
     return this.http.delete("http://localhost:3000/api/deletestudent/"+id);
+  }
+  addbatchstudent(data:any,selectedValue:any)
+  {
+    console.log("Mufeeda",selectedValue)
+    return this.http.put(`http://localhost:3000/api/addbatach`,selectedValue);
+  }
+  getStudentsbtch(data:any)
+  {
+    console.log("@service",data)
+    return this.http.get(`http://localhost:3000/api/Studentsbtch/${data}`);
   }
 
 }

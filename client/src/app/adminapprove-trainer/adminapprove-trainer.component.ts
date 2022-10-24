@@ -12,6 +12,7 @@ export class AdminapproveTrainerComponent implements OnInit {
   
   pageTitle="Tutor Details";
   tutordetails=[{
+    _id:'',
     id :'',
     name:'',
     email:'',
@@ -19,7 +20,10 @@ export class AdminapproveTrainerComponent implements OnInit {
     number:'', 
     dob:'',
     subject :'',
-    isEnrolled:''
+    isEnrolled:'',
+    gender :'',
+    qualification:'',
+    specialisation:''
    }] 
 
    batchdetails=[{
@@ -29,6 +33,17 @@ export class AdminapproveTrainerComponent implements OnInit {
     status  :''
     
   }]
+
+  apprstdnt={id:'',
+  selectedValue:''
+
+  
+}
+selectedValue :any;
+  changeBatch(e:any){
+    //console.log(e.target.value)
+    this.selectedValue=e.target.value;
+  }  
   constructor(public router:Router,public StudentdetailsService:StudentdetailsService,public BatchandcourseService:BatchandcourseService) { }
  //constructor() { }
   ngOnInit(): void {
@@ -60,6 +75,18 @@ deletetrainer(data:any){
     alert("Deleted Trainer "+ data.name +" Succesfully");
     this.router.navigate(['/AdminapproveTrainer']);
   
+}
+
+approvetrainer(id:string){
+  this.apprstdnt.id=id;
+  this.apprstdnt.selectedValue=this.selectedValue;
+  //console.log("approving.........",data); 
+  this.StudentdetailsService.approvestudent(this.apprstdnt).subscribe(data=>
+    {
+      console.log(data)
+    this.ngOnInit()
+    });
+    alert("Approved Succesfully");
 }
 
 }
