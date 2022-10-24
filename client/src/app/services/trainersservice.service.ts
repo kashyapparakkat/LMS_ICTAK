@@ -59,7 +59,7 @@ export class TrainersserviceService {
   edittrainerMarkupdte(assign:any)
   {
     console.log('client update')
-    return this.http.put("http://localhost:3000/api/updateAssignmentmark",assign)
+    return this.http.put(`${this.server_Address}/updateAssignmentmark`,assign)
       .subscribe(data =>{console.log(data)})
   }
 
